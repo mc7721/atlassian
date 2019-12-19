@@ -1,0 +1,2245 @@
+{
+    "id": "da03533d5b9ad81b7258cf5e508cf09e",
+    "name": "Stride API",
+    "description": null,
+    "auth": null,
+    "events": null,
+    "variables": [],
+    "order": [],
+    "folders_order": [],
+    "folders": [],
+    "requests": [
+        {
+            "id": "cfc45ddfdceee5ef650f8f33497597bf",
+            "name": "Get list of sites",
+            "url": "https\/\/site\/",
+            "description": "Authentication required, with scope participate:conversation",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "rawModeData": ""
+        },
+        {
+            "id": "f2047e2a47e0b148692e2e0a0b6b56cc",
+            "name": "Get a list of conversations",
+            "url": "https\/\/site\/{cloudId}\/conversation",
+            "description": "The API returns the list of conversations the app has access to Authentication required, with scope participate:conversation",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "cloudId",
+                    "description": "The id of the site (cloudId)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "include",
+                    "description": "Include private conversations into response. Default to 'true'.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "limit",
+                    "description": "A maximum number of conversations to return per call. Valid length range: 1 - 75. Default value is 75.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "query",
+                    "description": "A string containing full or part of conversation's name. May be empty.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "cursor",
+                    "description": "The cursor is a string, that you can use to scroll through the data set to get more results.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sort",
+                    "description": "A sort order of the conversations lists. Supported values: asc or desc.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "exclude",
+                    "description": "Exclude direct messages from a response. Default to 'false'",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "rawModeData": ""
+        },
+        {
+            "id": "613ee0b5108edb4e79a2993969a2bb82",
+            "name": "Create conversation",
+            "url": "https\/\/site\/{cloudId}\/conversation",
+            "description": "Authentication required, with scope manage:conversation",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "cloudId",
+                    "description": "The id of the site (cloudId)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "rawModeData": ""
+        },
+        {
+            "id": "b6a58942d1dda5e7bef5a6cd6f211cab",
+            "name": "Get a direct conversation of a user",
+            "url": "https\/\/site\/{cloudId}\/conversation\/user\/{userId}",
+            "description": "Get a direct conversation of a user.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "cloudId",
+                    "description": "The id of the site (cloudId)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "userId",
+                    "description": "The user Id",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "rawModeData": ""
+        },
+        {
+            "id": "53fa887ec631f3a195ac3d67cddb990c",
+            "name": "Send message to a user",
+            "url": "https\/\/site\/{cloudId}\/conversation\/user\/{userId}\/message",
+            "description": "Send message to a user.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "cloudId",
+                    "description": "The id of the site (cloudId)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "userId",
+                    "description": "The user Id",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "rawModeData": ""
+        },
+        {
+            "id": "5dc1bb30a435c90e3e568c88032ff60d",
+            "name": "Edit a message in a direct conversation",
+            "url": "https\/\/site\/{cloudId}\/conversation\/user\/{userId}\/message\/{messageId}",
+            "description": "Authentication required, with scope participate:conversation",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "put",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "cloudId",
+                    "description": "The id of the site (cloudId)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "userId",
+                    "description": "The user Id",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "messageId",
+                    "description": "The ID of the message.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "rawModeData": ""
+        },
+        {
+            "id": "e350ae1e28c3fa6f9e98f8d87511c762",
+            "name": "Delete a message in a direct conversation",
+            "url": "https\/\/site\/{cloudId}\/conversation\/user\/{userId}\/message\/{messageId}",
+            "description": "Authentication required, with scope participate:conversation",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "delete",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "cloudId",
+                    "description": "The id of the site (cloudId)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "userId",
+                    "description": "The user Id",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "messageId",
+                    "description": "The ID of the message.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "rawModeData": ""
+        },
+        {
+            "id": "2d3dfab95c0f8ef36d8ffd53a46df775",
+            "name": "Get conversation details",
+            "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}",
+            "description": "Authentication required, with scope participate:conversation",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "cloudId",
+                    "description": "The id of the site (cloudId)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "conversationId",
+                    "description": "The conversation id",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "rawModeData": ""
+        },
+        {
+            "id": "ab57aebac62008bd182ec1c21c92d1a0",
+            "name": "Update conversation",
+            "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}",
+            "description": "Authentication required, with scope manage:conversation",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "patch",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "cloudId",
+                    "description": "The id of the site (cloudId)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "conversationId",
+                    "description": "The conversation id",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "rawModeData": ""
+        },
+        {
+            "id": "fe2564d0ac76b46cec75c27beda514fa",
+            "name": "Get a list of chat:actionTarget modules",
+            "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:actionTarget",
+            "description": "Authentication required, with scope participate:conversation",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "cloudId",
+                    "description": "The id of the site (cloudId)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "conversationId",
+                    "description": "The conversation id",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "start",
+                    "description": "Offset for the query.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "limit",
+                    "description": "A maximum number of conversations to return per call. Valid length range: 1 - 75. Default value is 75.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "rawModeData": ""
+        },
+        {
+            "id": "f9052d4d34dce785258ddc40a02ebc7a",
+            "name": "Create or update a chat:actionTarget module",
+            "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:actionTarget\/{key}",
+            "description": "Authentication required, with scope participate:conversation",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "put",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "cloudId",
+                    "description": "The id of the site (cloudId)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "conversationId",
+                    "description": "The conversation id",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "key",
+                    "description": "The key to identify the resource",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "rawModeData": ""
+        },
+        {
+            "id": "7b61d2d7ca20d4b262db2c3f6f23261d",
+            "name": "Delete a chat:actionTarget module",
+            "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:actionTarget\/{key}",
+            "description": "Authentication required, with scope participate:conversation",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "delete",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "cloudId",
+                    "description": "The id of the site (cloudId)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "conversationId",
+                    "description": "The conversation id",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "key",
+                    "description": "The key to identify the resource",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "rawModeData": ""
+        },
+        {
+            "id": "7447d8f4091e1c9ae31e0664deb71575",
+            "name": "Get a list of chat:bot modules",
+            "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:bot",
+            "description": "Authentication required, with scope participate:conversation",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "cloudId",
+                    "description": "The id of the site (cloudId)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "conversationId",
+                    "description": "The conversation id",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "start",
+                    "description": "Offset for the query.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "limit",
+                    "description": "A maximum number of conversations to return per call. Valid length range: 1 - 75. Default value is 75.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "rawModeData": ""
+        },
+        {
+            "id": "ebf6ed0e98fe6aa2f0cd87bb712e48fa",
+            "name": "Create or update a chat:bot module",
+            "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:bot\/{key}",
+            "description": "Authentication required, with scope participate:conversation",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "put",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "cloudId",
+                    "description": "The id of the site (cloudId)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "conversationId",
+                    "description": "The conversation id",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "key",
+                    "description": "The key to identify the resource",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "rawModeData": ""
+        },
+        {
+            "id": "c1d531e2d9beba441d7eeaf1272c0291",
+            "name": "Delete a chat:bot module",
+            "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:bot\/{key}",
+            "description": "Authentication required, with scope participate:conversation",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "delete",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "cloudId",
+                    "description": "The id of the site (cloudId)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "conversationId",
+                    "description": "The conversation id",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "key",
+                    "description": "The key to identify the resource",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "rawModeData": ""
+        },
+        {
+            "id": "0dc1210b79f8b4154a5cee96f1eb0741",
+            "name": "Get a list of chat:bot:messages modules",
+            "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:bot:messages",
+            "description": "Authentication required, with scope participate:conversation",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "cloudId",
+                    "description": "The id of the site (cloudId)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "conversationId",
+                    "description": "The conversation id",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "start",
+                    "description": "Offset for the query.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "limit",
+                    "description": "A maximum number of conversations to return per call. Valid length range: 1 - 75. Default value is 75.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "rawModeData": ""
+        },
+        {
+            "id": "40e4db51d834ef7435c725fcbbcf6733",
+            "name": "Create or update a chat:bot:messages module",
+            "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:bot:messages\/{key}",
+            "description": "Authentication required, with scope participate:conversation",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "put",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "cloudId",
+                    "description": "The id of the site (cloudId)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "conversationId",
+                    "description": "The conversation id",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "key",
+                    "description": "The key to identify the resource",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "rawModeData": ""
+        },
+        {
+            "id": "655b8f68fb04d170ded2a7fe4fc2573d",
+            "name": "Delete a chat:bot:messages module",
+            "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:bot:messages\/{key}",
+            "description": "Authentication required, with scope participate:conversation",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "delete",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "cloudId",
+                    "description": "The id of the site (cloudId)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "conversationId",
+                    "description": "The conversation id",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "key",
+                    "description": "The key to identify the resource",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "rawModeData": ""
+        },
+        {
+            "id": "f9dc870c0227091c338193ad83187748",
+            "name": "Update the chat:configuration state",
+            "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:configuration\/{key}\/state",
+            "description": "Authentication required, with scope participate:conversation",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "put",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "cloudId",
+                    "description": "The id of the site (cloudId)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "conversationId",
+                    "description": "The conversation id",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "key",
+                    "description": "The key to identify the resource",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "rawModeData": ""
+        },
+        {
+            "id": "dc02575610ba2247e525c6a8f870d3f4",
+            "name": "Get a list of chat:dialog modules",
+            "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:dialog",
+            "description": "Authentication required, with scope participate:conversation",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "cloudId",
+                    "description": "The id of the site (cloudId)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "conversationId",
+                    "description": "The conversation id",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "start",
+                    "description": "Offset for the query.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "limit",
+                    "description": "A maximum number of conversations to return per call. Valid length range: 1 - 75. Default value is 75.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "rawModeData": ""
+        },
+        {
+            "id": "29c22f8d62e8a4d9480f4cc8638929bd",
+            "name": "Create or update a chat:dialog module",
+            "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:dialog\/{key}",
+            "description": "Authentication required, with scope participate:conversation",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "put",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "cloudId",
+                    "description": "The id of the site (cloudId)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "conversationId",
+                    "description": "The conversation id",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "key",
+                    "description": "The key to identify the resource",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "rawModeData": ""
+        },
+        {
+            "id": "07a3c0c0492f429795b37739e3461ce0",
+            "name": "Delete a chat:dialog module",
+            "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:dialog\/{key}",
+            "description": "Authentication required, with scope participate:conversation",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "delete",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "cloudId",
+                    "description": "The id of the site (cloudId)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "conversationId",
+                    "description": "The conversation id",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "key",
+                    "description": "The key to identify the resource",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "rawModeData": ""
+        },
+        {
+            "id": "c0f6ee54dfd1d85dafa5165e521c4767",
+            "name": "Get a list of chat:externalPage modules",
+            "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:externalPage",
+            "description": "Authentication required, with scope participate:conversation",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "cloudId",
+                    "description": "The id of the site (cloudId)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "conversationId",
+                    "description": "The conversation id",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "start",
+                    "description": "Offset for the query.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "limit",
+                    "description": "A maximum number of conversations to return per call. Valid length range: 1 - 75. Default value is 75.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "rawModeData": ""
+        },
+        {
+            "id": "d5ed4ad48bf99873307ddc2df7d185a2",
+            "name": "Create or update a chat:externalPage module",
+            "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:externalPage\/{key}",
+            "description": "Authentication required, with scope participate:conversation",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "put",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "cloudId",
+                    "description": "The id of the site (cloudId)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "conversationId",
+                    "description": "The conversation id",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "key",
+                    "description": "The key to identify the resource",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "rawModeData": ""
+        },
+        {
+            "id": "1353bcb96838c1b51618416af3ec8099",
+            "name": "Delete a chat:externalPage module",
+            "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:externalPage\/{key}",
+            "description": "Authentication required, with scope participate:conversation",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "delete",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "cloudId",
+                    "description": "The id of the site (cloudId)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "conversationId",
+                    "description": "The conversation id",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "key",
+                    "description": "The key to identify the resource",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "rawModeData": ""
+        },
+        {
+            "id": "2937ccf8ede30f529eea2e31cbd9184c",
+            "name": "Get a list of chat:glance modules",
+            "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:glance",
+            "description": "Authentication required, with scope participate:conversation",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "cloudId",
+                    "description": "The id of the site (cloudId)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "conversationId",
+                    "description": "The conversation id",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "start",
+                    "description": "Offset for the query.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "limit",
+                    "description": "A maximum number of conversations to return per call. Valid length range: 1 - 75. Default value is 75.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "rawModeData": ""
+        },
+        {
+            "id": "9ff2233ed006c01ecca6fafe89f721f7",
+            "name": "Create or update a chat:glance module",
+            "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:glance\/{key}",
+            "description": "Authentication required, with scope participate:conversation",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "put",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "cloudId",
+                    "description": "The id of the site (cloudId)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "conversationId",
+                    "description": "The conversation id",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "key",
+                    "description": "The key to identify the resource",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "rawModeData": ""
+        },
+        {
+            "id": "fabdfb4fc7fbc7e4d537d5df68e7518c",
+            "name": "Delete a chat:glance module",
+            "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:glance\/{key}",
+            "description": "Authentication required, with scope participate:conversation",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "delete",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "cloudId",
+                    "description": "The id of the site (cloudId)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "conversationId",
+                    "description": "The conversation id",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "key",
+                    "description": "The key to identify the resource",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "rawModeData": ""
+        },
+        {
+            "id": "d0be280252d0bb5109a76f27aed67357",
+            "name": "Update the chat:glance state",
+            "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:glance\/{key}\/state",
+            "description": "Authentication required, with scope participate:conversation",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "put",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "cloudId",
+                    "description": "The id of the site (cloudId)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "conversationId",
+                    "description": "The conversation id",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "key",
+                    "description": "The key to identify the resource",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "rawModeData": ""
+        },
+        {
+            "id": "2afa56e9616c59b844a4941f61c82781",
+            "name": "Get a list of chat:sidebar modules",
+            "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:sidebar",
+            "description": "Authentication required, with scope participate:conversation",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "cloudId",
+                    "description": "The id of the site (cloudId)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "conversationId",
+                    "description": "The conversation id",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "start",
+                    "description": "Offset for the query.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "limit",
+                    "description": "A maximum number of conversations to return per call. Valid length range: 1 - 75. Default value is 75.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "rawModeData": ""
+        },
+        {
+            "id": "8f6aad6c6ab6e99755eccebf7d0bf2a2",
+            "name": "Create or update a chat:sidebar module",
+            "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:sidebar\/{key}",
+            "description": "Authentication required, with scope participate:conversation",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "put",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "cloudId",
+                    "description": "The id of the site (cloudId)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "conversationId",
+                    "description": "The conversation id",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "key",
+                    "description": "The key to identify the resource",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "rawModeData": ""
+        },
+        {
+            "id": "0979f4ab07d9313ec76dc1a46f3b5b88",
+            "name": "Delete a chat:sidebar module",
+            "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:sidebar\/{key}",
+            "description": "Authentication required, with scope participate:conversation",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "delete",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "cloudId",
+                    "description": "The id of the site (cloudId)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "conversationId",
+                    "description": "The conversation id",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "key",
+                    "description": "The key to identify the resource",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "rawModeData": ""
+        },
+        {
+            "id": "56380fe8f9f5abb620ac9fa550b433aa",
+            "name": "Get a list of chat:webhook modules",
+            "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:webhook",
+            "description": "Authentication required, with scope participate:conversation",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "cloudId",
+                    "description": "The id of the site (cloudId)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "conversationId",
+                    "description": "The conversation id",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "start",
+                    "description": "Offset for the query.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "limit",
+                    "description": "A maximum number of conversations to return per call. Valid length range: 1 - 75. Default value is 75.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "rawModeData": ""
+        },
+        {
+            "id": "a7edc589c5f4c29efbe1a328e9e2419b",
+            "name": "Create or update a chat:webhook module",
+            "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:webhook\/{key}",
+            "description": "Authentication required, with scope participate:conversation",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "put",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "cloudId",
+                    "description": "The id of the site (cloudId)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "conversationId",
+                    "description": "The conversation id",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "key",
+                    "description": "The key to identify the resource",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "rawModeData": ""
+        },
+        {
+            "id": "06704ee03e4f3baf30b17406aff73a2b",
+            "name": "Delete a chat:webhook module",
+            "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:webhook\/{key}",
+            "description": "Authentication required, with scope participate:conversation",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "delete",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "cloudId",
+                    "description": "The id of the site (cloudId)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "conversationId",
+                    "description": "The conversation id",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "key",
+                    "description": "The key to identify the resource",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "rawModeData": ""
+        },
+        {
+            "id": "96e2cf5d4fc5a3be25ff515d39b70c21",
+            "name": "Archive conversation",
+            "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/archive",
+            "description": "Authentication required, with scope manage:conversation",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "put",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "cloudId",
+                    "description": "The id of the site (cloudId)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "conversationId",
+                    "description": "The conversation id",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "rawModeData": ""
+        },
+        {
+            "id": "4a99c90995d68c50ed21768a3c5b9bad",
+            "name": "Upload a file",
+            "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/media",
+            "description": "Authentication required, with scope participate:conversation",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "cloudId",
+                    "description": "The id of the site (cloudId)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "conversationId",
+                    "description": "The conversation id",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "name",
+                    "description": "File name",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "rawModeData": ""
+        },
+        {
+            "id": "6796d86fe51575300f6e2c9c23cbeff9",
+            "name": "Get a file",
+            "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/media\/{mediaId}",
+            "description": "Authentication required, with scope participate:conversation",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "cloudId",
+                    "description": "The id of the site (cloudId)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "conversationId",
+                    "description": "The conversation id",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "mediaId",
+                    "description": "Media ID",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "rawModeData": ""
+        },
+        {
+            "id": "918a86ada947b58b1ea577424c753262",
+            "name": "Delete a file",
+            "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/media\/{mediaId}",
+            "description": "Authentication required, with scope participate:conversation",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "delete",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "cloudId",
+                    "description": "The id of the site (cloudId)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "conversationId",
+                    "description": "The conversation id",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "mediaId",
+                    "description": "Media ID",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "rawModeData": ""
+        },
+        {
+            "id": "8977e4f3498051a8d305c9f0d1d2f4b6",
+            "name": "Get conversation history",
+            "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/message",
+            "description": "Authentication required, with scope participate:conversation This method returns messages after\/before a given messageIDs or\/and timestamps. If these parameters are omitted the method returns conversation\u2019s latest messages. Max number of messages returned is 75.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "beforeMessage",
+                    "description": "Returns at most 75 messages before a provided messageID",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "beforeTimestamp",
+                    "description": "Returns at most 75 messages before a provided RFC3339 timestamp (2006-01-02T15:04:05+07:00)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "afterMessage",
+                    "description": "Returns at most 75 latest messages after a provided messageID",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "afterTimestamp",
+                    "description": "Returns at most 75 latest messages after a provided RFC3339 timestamp (2006-01-02T15:04:05+07:00)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "limit",
+                    "description": "A maximum number of conversations to return per call. Valid length range: 1 - 75. Default value is 75.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "cloudId",
+                    "description": "The id of the site (cloudId)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "conversationId",
+                    "description": "The conversation id",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "rawModeData": ""
+        },
+        {
+            "id": "7090c6bbc18893e83a516621a4035f9d",
+            "name": "Send a message to a conversation",
+            "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/message",
+            "description": "Send a message to a conversation.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "cloudId",
+                    "description": "The id of the site (cloudId)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "conversationId",
+                    "description": "The conversation id",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "rawModeData": ""
+        },
+        {
+            "id": "16f154d8ad0b17d271b55f4dcdf31b0c",
+            "name": "Get latest messages for conversation",
+            "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/message\/recent",
+            "description": "Authentication required, with scope participate:conversation Max number of messages returned is 75.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "limit",
+                    "description": "A maximum number of conversations to return per call. Valid length range: 1 - 75. Default value is 75.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "cloudId",
+                    "description": "The id of the site (cloudId)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "conversationId",
+                    "description": "The conversation id",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "rawModeData": ""
+        },
+        {
+            "id": "75c0f5e6f26b8f97d1e55943ff68b842",
+            "name": "Get Message by id",
+            "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/message\/{messageId}",
+            "description": "Authentication required, with scope participate:conversation",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "messageId",
+                    "description": "The ID of the message.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "cloudId",
+                    "description": "The id of the site (cloudId)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "conversationId",
+                    "description": "The conversation id",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "rawModeData": ""
+        },
+        {
+            "id": "12439f86030d289e2741264dfe5049d6",
+            "name": "Edit a message in a conversation",
+            "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/message\/{messageId}",
+            "description": "Authentication required, with scope participate:conversation",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "put",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "cloudId",
+                    "description": "The id of the site (cloudId)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "conversationId",
+                    "description": "The conversation id",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "messageId",
+                    "description": "The ID of the message.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "rawModeData": ""
+        },
+        {
+            "id": "6e4882094eac51ff07e20f30899b1e70",
+            "name": "Delete a message in a conversation",
+            "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/message\/{messageId}",
+            "description": "Authentication required, with scope participate:conversation",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "delete",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "cloudId",
+                    "description": "The id of the site (cloudId)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "conversationId",
+                    "description": "The conversation id",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "messageId",
+                    "description": "The ID of the message.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "rawModeData": ""
+        },
+        {
+            "id": "609ab6a944059393fa627ef27165f9ce",
+            "name": "Get conversation history contextually",
+            "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/message\/{messageId}\/context",
+            "description": "Authentication required, with scope participate:conversation This method returns messages after and\/or before a given messageID including the message itself. Default value for 'after' and 'before' query parameters is 0. Max number of messages returned is 75.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "messageId",
+                    "description": "The ID of the message.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "before",
+                    "description": "A number of messages to return before the Message.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "after",
+                    "description": "A number of messages to return after the Message.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "cloudId",
+                    "description": "The id of the site (cloudId)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "conversationId",
+                    "description": "The conversation id",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "rawModeData": ""
+        },
+        {
+            "id": "515650bf8bc8f58948e54dc56390ffac",
+            "name": "Get conversation roster",
+            "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/roster",
+            "description": "Authentication required, with scope participate:conversation",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "cloudId",
+                    "description": "The id of the site (cloudId)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "conversationId",
+                    "description": "The conversation id",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "rawModeData": ""
+        },
+        {
+            "id": "1dbe8c74de2b8d5f150ab345f35fcfd2",
+            "name": "Update a conversation roster",
+            "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/roster",
+            "description": "Authentication required, with scope manage:conversation",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "patch",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "cloudId",
+                    "description": "The id of the site (cloudId)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "conversationId",
+                    "description": "The conversation id",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "rawModeData": ""
+        },
+        {
+            "id": "1d1b659b0b8c39aa80448ac2b99012e2",
+            "name": "Unarchive conversation",
+            "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/unarchive",
+            "description": "Authentication required, with scope manage:conversation",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "put",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "cloudId",
+                    "description": "The id of the site (cloudId)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "conversationId",
+                    "description": "The conversation id",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "rawModeData": ""
+        }
+    ]
+}

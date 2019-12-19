@@ -1,0 +1,2790 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "",
+        "title": "The Confluence Cloud REST API",
+        "description": "This document describes the REST API and resources provided by Confluence. The REST APIs are for developers who want to integrate Confluence into their application and for administrators who want to script interactions with the Confluence server.Confluence's REST APIs provide access to resources (data entities) via URI paths. To use a REST API, your application will make an HTTP request and parse the response. The response format is JSON. Your methods will be the standard HTTP methods like GET, PUT, POST and DELETE. Because the REST API is based on open standards, you can use any web development language to access the API.",
+        "termsOfService": "http:\/\/atlassian.com\/terms\/"
+    },
+    "servers": [
+        "https\/"
+    ],
+    "paths": {
+        "\/audit": {
+            "get": {
+                "summary": "Get audit records",
+                "description": "Returns all records in the audit log, optionally for a certain date range. \nThis contains information about events like space exports, group membership \nchanges, app installations, etc. For more information, see \n[Audit log](https:\/\/confluence.atlassian.com\/confcloud\/audit-log-802164269.html) \nin the Confluence administrator's guide.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: \n'Confluence Administrator' global permission.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesAuditResourceGetAuditRecordsGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "startDate",
+                        "in": "query",
+                        "description": "Filters the results to the records on or after the `startDate`. \nThe `startDate` must be specified as a [timestamp](https:\/\/www.unixtimestamp.com\/)."
+                    },
+                    {
+                        "name": "endDate",
+                        "in": "query",
+                        "description": "Filters the results to the records on or before the `endDate`. \nThe `endDate` must be specified as a [timestamp](https:\/\/www.unixtimestamp.com\/)."
+                    },
+                    {
+                        "name": "searchString",
+                        "in": "query",
+                        "description": "Filters the results to records that have string property values \nmatching the `searchString`."
+                    },
+                    {
+                        "name": "start",
+                        "in": "query",
+                        "description": "The starting index of the returned records."
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "The maximum number of records to return per page. \nNote, this may be restricted by fixed system limits."
+                    }
+                ]
+            },
+            "post": {
+                "summary": "Create audit record",
+                "description": "Creates a record in the audit log. \n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: \n'Confluence Administrator' global permission.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesAuditResourceCreateAuditRecordPost",
+                "deprecated": 0,
+                "parameters": []
+            }
+        },
+        "\/audit\/export": {
+            "get": {
+                "summary": "Export audit records",
+                "description": "Exports audit records as a CSV file or ZIP file.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: \n'Confluence Administrator' global permission.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesAuditResourceExportAuditRecordsGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "startDate",
+                        "in": "query",
+                        "description": "Filters the results to the records on or after the `startDate`. \nThe `startDate` must be specified as a [timestamp](https:\/\/www.unixtimestamp.com\/)."
+                    },
+                    {
+                        "name": "endDate",
+                        "in": "query",
+                        "description": "Filters the results to the records on or before the `endDate`. \nThe `endDate` must be specified as a [timestamp](https:\/\/www.unixtimestamp.com\/)."
+                    },
+                    {
+                        "name": "searchString",
+                        "in": "query",
+                        "description": "Filters the results to records that have string property values \nmatching the `searchString`."
+                    },
+                    {
+                        "name": "format",
+                        "in": "query",
+                        "description": "The format of the export file for the audit records."
+                    }
+                ]
+            }
+        },
+        "\/audit\/retention": {
+            "get": {
+                "summary": "Get retention period",
+                "description": "Returns the retention period for records in the audit log. The retention \nperiod is how long an audit record is kept for, from creation date until \nit is deleted.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: \n'Confluence Administrator' global permission.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesAuditResourceGetRetentionPeriodGet",
+                "deprecated": 0,
+                "parameters": []
+            },
+            "put": {
+                "summary": "Set retention period",
+                "description": "Sets the retention period for records in the audit log. The retention period \ncan be set to a maximum of 20 years.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: \n'Confluence Administrator' global permission.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesAuditResourceSetRetentionPeriodPut",
+                "deprecated": 0,
+                "parameters": []
+            }
+        },
+        "\/audit\/since": {
+            "get": {
+                "summary": "Get audit records for time period",
+                "description": "Returns records from the audit log, for a time period back from the current \ndate. For example, you can use this method to get the last 3 months of records.\n\nThis contains information about events like space exports, group membership \nchanges, app installations, etc. For more information, see \n[Audit log](https:\/\/confluence.atlassian.com\/confcloud\/audit-log-802164269.html) \nin the Confluence administrator's guide.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: \n'Confluen",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesAuditResourceGetAuditRecordsForTimePeriodGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "number",
+                        "in": "query",
+                        "description": "The number of units for the time period."
+                    },
+                    {
+                        "name": "units",
+                        "in": "query",
+                        "description": "The unit of time that the time period is measured in."
+                    },
+                    {
+                        "name": "searchString",
+                        "in": "query",
+                        "description": "Filters the results to records that have string property values \nmatching the `searchString`."
+                    },
+                    {
+                        "name": "start",
+                        "in": "query",
+                        "description": "The starting index of the returned records."
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "The maximum number of records to return per page. \nNote, this may be restricted by fixed system limits."
+                    }
+                ]
+            }
+        },
+        "\/content": {
+            "get": {
+                "summary": "Get content",
+                "description": "Returns all content in a Confluence instance.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: \nPermission to access the Confluence site ('Can use' global permission). \nOnly content that the user has permission to view will be returned.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesContentResourceGetContentGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "description": "The type of content to return."
+                    },
+                    {
+                        "name": "spaceKey",
+                        "in": "query",
+                        "description": "The key of the space to be queried for its content."
+                    },
+                    {
+                        "name": "title",
+                        "in": "query",
+                        "description": "The title of the page to be returned. Required for <code>page<\/code> type."
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "Filter the results to a set of content based on their status. If set to `any`, \ncontent with any status is returned. Note, the `historical` status is currently \nnot supported."
+                    },
+                    {
+                        "name": "postingDay",
+                        "in": "query",
+                        "description": "The posting date of the blog post to be returned. Required for\n<code>blogpost<\/code> type. Format: <code>yyyy-mm-dd<\/code>."
+                    },
+                    {
+                        "name": "expand",
+                        "in": "query",
+                        "description": "A multi-value parameter indicating which properties of the content to expand.\nBy default, the following objects are expanded: `space`, `history`, `version`.\n\n- `childTypes.all` returns whether the content has attachments, comments, or child pages. \nUse this if you only need to check whether the content has children of a particular type.\n- `childTypes.attachment` returns whether the content has attachments.\n- `childTypes.comment` returns whether the content has comments.\n- `childTypes.page` retur"
+                    },
+                    {
+                        "name": "trigger",
+                        "in": "query",
+                        "description": "If set to `viewed`, the request will trigger a 'viewed' event for the content. \nWhen this event is triggered, the page\/blogpost will appear on the 'Recently visited' \ntab of the user's Confluence dashboard."
+                    },
+                    {
+                        "name": "orderby",
+                        "in": "query",
+                        "description": "Orders the content by a particular field. Specify the field and sort direction for \nthis parameter, as follows: 'fieldpath asc\/desc'. For example, 'history.createdDate desc'."
+                    },
+                    {
+                        "name": "start",
+                        "in": "query",
+                        "description": "The starting index of the returned records."
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "The maximum number of records to return per page. \nNote, this may be restricted by fixed system limits."
+                    }
+                ]
+            },
+            "post": {
+                "summary": "Create content",
+                "description": "Creates a new piece of content or publishes an existing draft. \n\nTo publish a draft, add the `id` and `status` properties to the body of the request. \nSet the `id` to the ID of the draft and set the `status` to 'current'. When the \nrequest is sent, a new piece of content will be created and the metadata from the \ndraft will be transferred into it.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: 'Add' permission for the \nspace that the content will be created in, and permi",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesContentResourceCreateContentPost",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "Filter the results to a set of content based on their status. If set to `any`, \ncontent with any status is returned. Note, the `historical` status is currently \nnot supported."
+                    },
+                    {
+                        "name": "expand",
+                        "in": "query",
+                        "description": "A multi-value parameter indicating which properties of the content to expand.\nBy default, the following objects are expanded: `space`, `history`, `version`.\n\n- `childTypes.all` returns whether the content has attachments, comments, or child pages. \nUse this if you only need to check whether the content has children of a particular type.\n- `childTypes.attachment` returns whether the content has attachments.\n- `childTypes.comment` returns whether the content has comments.\n- `childTypes.page` retur"
+                    }
+                ]
+            }
+        },
+        "\/content\/blueprint\/instance\/{draftId}": {
+            "post": {
+                "summary": "Publish legacy draft",
+                "description": "Publishes a legacy draft of a page created from a blueprint. Legacy drafts \nwill eventually be removed in favour of shared drafts. For now, this method \nworks the same as [Publish shared draft](#api-content-blueprint-instance-draftId-put).\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: \nPermission to view the draft and 'Add' permission for the space that \nthe content will be created in.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesContentBlueprintResourcePublishLegacyDraftPost",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "draftId",
+                        "in": "path",
+                        "description": "The ID of the draft page that was created from a blueprint. \nYou can find the `draftId` in the Confluence application by \nopening the draft page and checking the page URL."
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "Filter the results to a set of content based on their status. If set to `any`, \ncontent with any status is returned. Note, the `historical` status is currently \nnot supported."
+                    },
+                    {
+                        "name": "expand",
+                        "in": "query",
+                        "description": "A multi-value parameter indicating which properties of the content to expand.\nBy default, the following objects are expanded: `space`, `history`, `version`.\n\n- `childTypes.all` returns whether the content has attachments, comments, or child pages. \nUse this if you only need to check whether the content has children of a particular type.\n- `childTypes.attachment` returns whether the content has attachments.\n- `childTypes.comment` returns whether the content has comments.\n- `childTypes.page` retur"
+                    }
+                ]
+            },
+            "put": {
+                "summary": "Publish shared draft",
+                "description": "Publishes a shared draft of a page created from a blueprint.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: \nPermission to view the draft and 'Add' permission for the space that \nthe content will be created in.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesContentBlueprintResourcePublishSharedDraftPut",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "draftId",
+                        "in": "path",
+                        "description": "The ID of the draft page that was created from a blueprint. \nYou can find the `draftId` in the Confluence application by \nopening the draft page and checking the page URL."
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "Filter the results to a set of content based on their status. If set to `any`, \ncontent with any status is returned. Note, the `historical` status is currently \nnot supported."
+                    },
+                    {
+                        "name": "expand",
+                        "in": "query",
+                        "description": "A multi-value parameter indicating which properties of the content to expand.\nBy default, the following objects are expanded: `space`, `history`, `version`.\n\n- `childTypes.all` returns whether the content has attachments, comments, or child pages. \nUse this if you only need to check whether the content has children of a particular type.\n- `childTypes.attachment` returns whether the content has attachments.\n- `childTypes.comment` returns whether the content has comments.\n- `childTypes.page` retur"
+                    }
+                ]
+            }
+        },
+        "\/content\/search": {
+            "get": {
+                "summary": "Search content by CQL",
+                "description": "Returns the list of content that matches a Confluence Query Language \n(CQL) query. For information on CQL, see: \n[Advanced searching using CQL](https:\/\/developer.atlassian.com\/cloud\/confluence\/advanced-searching-using-cql\/).\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: \nPermission to access the Confluence site ('Can use' global permission). \nOnly content that the user has permission to view will be returned.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesContentResourceSearchContentByCQLGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "cql",
+                        "in": "query",
+                        "description": "The CQL string that is used to find the requested content."
+                    },
+                    {
+                        "name": "cqlcontext",
+                        "in": "query",
+                        "description": "The space, content, and content status to execute the search against. \nSpecify this as an object with the following properties:\n\n- `spaceKey` Key of the space to search against. Optional.\n- `contentId` ID of the content to search against. Optional. Must \nbe in the space spacified by `spaceKey`.\n- `contentStatuses` Content statuses to search against. Optional."
+                    },
+                    {
+                        "name": "expand",
+                        "in": "query",
+                        "description": "A multi-value parameter indicating which properties of the content to expand.\nBy default, the following objects are expanded: `space`, `history`, `version`.\n\n- `childTypes.all` returns whether the content has attachments, comments, or child pages. \nUse this if you only need to check whether the content has children of a particular type.\n- `childTypes.attachment` returns whether the content has attachments.\n- `childTypes.comment` returns whether the content has comments.\n- `childTypes.page` retur"
+                    },
+                    {
+                        "name": "start",
+                        "in": "query",
+                        "description": "The starting index of the returned records."
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "The maximum number of records to return per page. \nNote, this may be restricted by fixed system limits."
+                    }
+                ]
+            }
+        },
+        "\/content\/{id}": {
+            "get": {
+                "summary": "Get content by ID",
+                "description": "Returns a single piece of content, like a page or a blog post.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: \nPermission to view the content. If the content is a blog post, 'View' permission \nfor the space is required.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesContentResourceGetContentByIdGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of the content to be returned. If you don't know the content ID, \nuse [Get content](#api-content-get) and filter the results."
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "Filter the results to a set of content based on their status. If set to `any`, \ncontent with any status is returned. Note, the `historical` status is currently \nnot supported."
+                    },
+                    {
+                        "name": "version",
+                        "in": "query",
+                        "description": "The version number of the content to be returned."
+                    },
+                    {
+                        "name": "embeddedContentRender",
+                        "in": "query",
+                        "description": "The version of embedded content (e.g. attachments) to render. \n\n- <code>current<\/code> renders the latest version of the embedded content.\n- <code>version-at-save<\/code> renders the version of the embedded content \nat the time of save."
+                    },
+                    {
+                        "name": "expand",
+                        "in": "query",
+                        "description": "A multi-value parameter indicating which properties of the content to expand.\nBy default, the following objects are expanded: `space`, `history`, `version`.\n\n- `childTypes.all` returns whether the content has attachments, comments, or child pages. \nUse this if you only need to check whether the content has children of a particular type.\n- `childTypes.attachment` returns whether the content has attachments.\n- `childTypes.comment` returns whether the content has comments.\n- `childTypes.page` retur"
+                    },
+                    {
+                        "name": "trigger",
+                        "in": "query",
+                        "description": "If set to `viewed`, the request will trigger a 'viewed' event for the content. \nWhen this event is triggered, the page\/blogpost will appear on the 'Recently visited' \ntab of the user's Confluence dashboard."
+                    }
+                ]
+            },
+            "put": {
+                "summary": "Update content",
+                "description": "Updates a piece of content. Use this method to update the title or body \nof a piece of content, change the status, change the parent page, and more.\n\nNote, updating draft content is currently not supported.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: \nPermission to update the content.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesContentResourceUpdateContentPut",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of the content to be returned. If you don't know the content ID, \nuse [Get content](#api-content-get) and filter the results."
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "Filter the results to a set of content based on their status. If set to `any`, \ncontent with any status is returned. Note, the `historical` status is currently \nnot supported."
+                    },
+                    {
+                        "name": "conflictPolicy",
+                        "in": "query",
+                        "description": "The action that should be taken when conflicts are discovered. \nOnly used when publishing a draft page."
+                    }
+                ]
+            },
+            "delete": {
+                "summary": "Delete content",
+                "description": "Moves a piece of content to the space's trash or purges it from the trash, \ndepending on the content's type and status:\n\n- If the content's type is `page` or `blogpost` and its status is `current`, \nit will be trashed.\n- If the content's type is `page` or `blogpost` and its status is `trashed`, \nthe content will be purged from the trash and deleted permanently. Note, \nyou must also set the `status` query parameter to `trashed` in your request.\n- If the content's type is `comment` or `attachment`",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesContentResourceDeleteContentDelete",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of the content to be returned. If you don't know the content ID, \nuse [Get content](#api-content-get) and filter the results."
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "Filter the results to a set of content based on their status. If set to `any`, \ncontent with any status is returned. Note, the `historical` status is currently \nnot supported."
+                    }
+                ]
+            }
+        },
+        "\/content\/{id}\/child": {
+            "get": {
+                "summary": "Get content children",
+                "description": "Returns a map of the direct children of a piece of content. A piece of content \nhas different types of child content, depending on its type. These are \nthe default parent-child content type relationships:\n\n- `page`: child content is `page`, `comment`, `attachment`\n- `blogpost`: child content is `comment`, `attachment`\n- `attachment`: child content is `comment`\n- `comment`: child content is `attachment`\n\nApps can override these default relationships. Apps can also introduce \nnew content types tha",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesChildContentResourceGetContentChildrenGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of the content to be returned. If you don't know the content ID, \nuse [Get content](#api-content-get) and filter the results."
+                    },
+                    {
+                        "name": "expand",
+                        "in": "query",
+                        "description": "A multi-value parameter indicating which properties of the content to expand.\nBy default, the following objects are expanded: `space`, `history`, `version`.\n\n- `childTypes.all` returns whether the content has attachments, comments, or child pages. \nUse this if you only need to check whether the content has children of a particular type.\n- `childTypes.attachment` returns whether the content has attachments.\n- `childTypes.comment` returns whether the content has comments.\n- `childTypes.page` retur"
+                    },
+                    {
+                        "name": "parentVersion",
+                        "in": "query",
+                        "description": "The version of the parent content to retrieve children for.\nCurrently, this only works for the latest version."
+                    }
+                ]
+            }
+        },
+        "\/content\/{id}\/child\/attachment": {
+            "get": {
+                "summary": "Get attachments",
+                "description": "Returns the attachments for a piece of content.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: \nPermission to view the content. If the content is a blog post, 'View' permission \nfor the space is required.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesAttachmentResourceGetAttachmentsGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of the content to be returned. If you don't know the content ID, \nuse [Get content](#api-content-get) and filter the results."
+                    },
+                    {
+                        "name": "expand",
+                        "in": "query",
+                        "description": "A multi-value parameter indicating which properties of the content to expand.\nBy default, the following objects are expanded: `space`, `history`, `version`.\n\n- `childTypes.all` returns whether the content has attachments, comments, or child pages. \nUse this if you only need to check whether the content has children of a particular type.\n- `childTypes.attachment` returns whether the content has attachments.\n- `childTypes.comment` returns whether the content has comments.\n- `childTypes.page` retur"
+                    },
+                    {
+                        "name": "start",
+                        "in": "query",
+                        "description": "The starting index of the returned records."
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "The maximum number of records to return per page. \nNote, this may be restricted by fixed system limits."
+                    },
+                    {
+                        "name": "filename",
+                        "in": "query",
+                        "description": "Filter the results to attachments that match the filename."
+                    },
+                    {
+                        "name": "mediaType",
+                        "in": "query",
+                        "description": "Filter the results to attachments that match the media type."
+                    }
+                ]
+            },
+            "post": {
+                "summary": "Create attachment",
+                "description": "Adds an attachment to a piece of content. This method only adds a new \nattachment. If you want to update an existing attachment, use \n[Create or update attachments](#api-content-id-child-attachment-put).\n\nNote, you must set a `X-Atlassian-Token: nocheck` header on the request \nfor this method, otherwise it will be blocked. This protects against XSRF \nattacks, which is necessary as this method accepts multipart\/form-data.\n\nThe media type 'multipart\/form-data' is defined in [RFC 1867](https:\/\/www.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesAttachmentResourceCreateAttachmentsPost",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of the content to be returned. If you don't know the content ID, \nuse [Get content](#api-content-get) and filter the results."
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "Filter the results to a set of content based on their status. If set to `any`, \ncontent with any status is returned. Note, the `historical` status is currently \nnot supported."
+                    }
+                ]
+            },
+            "put": {
+                "summary": "Create or update attachment",
+                "description": "Adds an attachment to a piece of content. If the attachment already exists \nfor the content, then the attachment is updated (i.e. a new version of the \nattachment is created).\n\nNote, you must set a `X-Atlassian-Token: nocheck` header on the request \nfor this method, otherwise it will be blocked. This protects against XSRF \nattacks, which is necessary as this method accepts multipart\/form-data.\n\nThe media type 'multipart\/form-data' is defined in [RFC 1867](https:\/\/www.ietf.org\/rfc\/rfc1867.txt). \n",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesAttachmentResourceCreateOrUpdateAttachmentsPut",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of the content to be returned. If you don't know the content ID, \nuse [Get content](#api-content-get) and filter the results."
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "Filter the results to a set of content based on their status. If set to `any`, \ncontent with any status is returned. Note, the `historical` status is currently \nnot supported."
+                    }
+                ]
+            }
+        },
+        "\/content\/{id}\/child\/attachment\/{attachmentId}": {
+            "put": {
+                "summary": "Update attachment properties",
+                "description": "Updates the attachment properties, i.e. the non-binary data of an attachment \nlike the filename, media-type, comment, and parent container.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: \nPermission to update the content.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesAttachmentResourceUpdateAttachmentPropertiesPut",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of the content to be returned. If you don't know the content ID, \nuse [Get content](#api-content-get) and filter the results."
+                    },
+                    {
+                        "name": "attachmentId",
+                        "in": "path",
+                        "description": "The ID of the attachment to update."
+                    }
+                ]
+            }
+        },
+        "\/content\/{id}\/child\/attachment\/{attachmentId}\/data": {
+            "post": {
+                "summary": "Update attachment data",
+                "description": "Updates the binary data of an attachment, given the attachment ID, and \noptionally the comment and the minor edit field.\n\nThis method is essentially the same as [Create or update attachments](#api-content-id-child-attachment-put), \nexcept that it matches the attachment ID rather than the name.\n\nNote, you must set a `X-Atlassian-Token: nocheck` header on the request \nfor this method, otherwise it will be blocked. This protects against XSRF \nattacks, which is necessary as this method accepts multi",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesAttachmentResourceUpdateAttachmentDataPost",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of the content to be returned. If you don't know the content ID, \nuse [Get content](#api-content-get) and filter the results."
+                    },
+                    {
+                        "name": "attachmentId",
+                        "in": "path",
+                        "description": "The ID of the attachment to update."
+                    }
+                ]
+            }
+        },
+        "\/content\/{id}\/child\/comment": {
+            "get": {
+                "summary": "Get content comments",
+                "description": "Returns the comments on a piece of content.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: 'View' permission for the space, \nand permission to view the content if it is a page.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesChildContentResourceGetContentCommentsGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of the content to be returned. If you don't know the content ID, \nuse [Get content](#api-content-get) and filter the results."
+                    },
+                    {
+                        "name": "expand",
+                        "in": "query",
+                        "description": "A multi-value parameter indicating which properties of the content to expand.\nBy default, the following objects are expanded: `space`, `history`, `version`.\n\n- `childTypes.all` returns whether the content has attachments, comments, or child pages. \nUse this if you only need to check whether the content has children of a particular type.\n- `childTypes.attachment` returns whether the content has attachments.\n- `childTypes.comment` returns whether the content has comments.\n- `childTypes.page` retur"
+                    },
+                    {
+                        "name": "parentVersion",
+                        "in": "query",
+                        "description": "The version of the parent content to retrieve children for.\nCurrently, this only works for the latest version."
+                    },
+                    {
+                        "name": "start",
+                        "in": "query",
+                        "description": "The starting index of the returned records."
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "The maximum number of records to return per page. \nNote, this may be restricted by fixed system limits."
+                    },
+                    {
+                        "name": "location",
+                        "in": "query",
+                        "description": "The location of the comments in the page. Multiple locations can be specified. \nIf no location is specified, comments from all locations are returned."
+                    },
+                    {
+                        "name": "depth",
+                        "in": "query",
+                        "description": "Currently, this parameter is not used. \nComments are returned at the root level only."
+                    }
+                ]
+            }
+        },
+        "\/content\/{id}\/child\/{type}": {
+            "get": {
+                "summary": "Get content children by type",
+                "description": "Returns all children of a given type, for a piece of content. \nA piece of content has different types of child content, depending on its type:\n\n- `page`: child content is `page`, `comment`, `attachment`\n- `blogpost`: child content is `comment`, `attachment`\n- `attachment`: child content is `comment`\n- `comment`: child content is `attachment`\n\nCustom content types that are provided by apps can also be returned.\n\nNote, this method only returns direct children. To return children at all \nlevels, us",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesChildContentResourceGetContentChildrenByTypeGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of the content to be returned. If you don't know the content ID, \nuse [Get content](#api-content-get) and filter the results."
+                    },
+                    {
+                        "name": "type",
+                        "in": "path",
+                        "description": "The type of children to return."
+                    },
+                    {
+                        "name": "expand",
+                        "in": "query",
+                        "description": "A multi-value parameter indicating which properties of the content to expand.\nBy default, the following objects are expanded: `space`, `history`, `version`.\n\n- `childTypes.all` returns whether the content has attachments, comments, or child pages. \nUse this if you only need to check whether the content has children of a particular type.\n- `childTypes.attachment` returns whether the content has attachments.\n- `childTypes.comment` returns whether the content has comments.\n- `childTypes.page` retur"
+                    },
+                    {
+                        "name": "parentVersion",
+                        "in": "query",
+                        "description": "The version of the parent content to retrieve children for.\nCurrently, this only works for the latest version."
+                    },
+                    {
+                        "name": "start",
+                        "in": "query",
+                        "description": "The starting index of the returned records."
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "The maximum number of records to return per page. \nNote, this may be restricted by fixed system limits."
+                    }
+                ]
+            }
+        },
+        "\/content\/{id}\/descendant": {
+            "get": {
+                "summary": "Get content descendants",
+                "description": "Returns a map of the descendants of a piece of content. This is similar \nto [Get content children](#api-content-id-child-get), except that this \nmethod returns child pages at all levels, rather than just the direct \nchild pages.\n\nA piece of content has different types of descendants, depending on its type:\n\n- `page`: descendant is `page`, `comment`, `attachment`\n- `blogpost`: descendant is `comment`, `attachment`\n- `attachment`: descendant is `comment`\n- `comment`: descendant is `attachment`\n\nTh",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesDescendantContentResourceGetContentDescendantsG",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of the content to be returned. If you don't know the content ID, \nuse [Get content](#api-content-get) and filter the results."
+                    },
+                    {
+                        "name": "expand",
+                        "in": "query",
+                        "description": "A multi-value parameter indicating which properties of the content to expand.\nBy default, the following objects are expanded: `space`, `history`, `version`.\n\n- `childTypes.all` returns whether the content has attachments, comments, or child pages. \nUse this if you only need to check whether the content has children of a particular type.\n- `childTypes.attachment` returns whether the content has attachments.\n- `childTypes.comment` returns whether the content has comments.\n- `childTypes.page` retur"
+                    }
+                ]
+            }
+        },
+        "\/content\/{id}\/descendant\/{type}": {
+            "get": {
+                "summary": "Get content descendants by type",
+                "description": "Returns all descendants of a given type, for a piece of content. This is \nsimilar to [Get content children by type](#api-content-id-child-type-get), \nexcept that this method returns child pages at all levels, rather than just \nthe direct child pages.\n\nA piece of content has different types of descendants, depending on its type:\n\n- `page`: descendant is `page`, `comment`, `attachment`\n- `blogpost`: descendant is `comment`, `attachment`\n- `attachment`: descendant is `comment`\n- `comment`: descenda",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesDescendantContentResourceDescendantsOfTypeGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of the content to be returned. If you don't know the content ID, \nuse [Get content](#api-content-get) and filter the results."
+                    },
+                    {
+                        "name": "type",
+                        "in": "path",
+                        "description": "The type of children to return."
+                    },
+                    {
+                        "name": "expand",
+                        "in": "query",
+                        "description": "A multi-value parameter indicating which properties of the content to expand.\nBy default, the following objects are expanded: `space`, `history`, `version`.\n\n- `childTypes.all` returns whether the content has attachments, comments, or child pages. \nUse this if you only need to check whether the content has children of a particular type.\n- `childTypes.attachment` returns whether the content has attachments.\n- `childTypes.comment` returns whether the content has comments.\n- `childTypes.page` retur"
+                    },
+                    {
+                        "name": "start",
+                        "in": "query",
+                        "description": "The starting index of the returned records."
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "The maximum number of records to return per page. \nNote, this may be restricted by fixed system limits."
+                    }
+                ]
+            }
+        },
+        "\/content\/{id}\/history": {
+            "get": {
+                "summary": "Get history for content",
+                "description": "Returns the most recent update for a piece of content.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: Permission to view the content.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesContentResourceGetHistoryForContentGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of the content to be returned. If you don't know the content ID, \nuse [Get content](#api-content-get) and filter the results."
+                    },
+                    {
+                        "name": "expand",
+                        "in": "query",
+                        "description": "A multi-value parameter indicating which properties of the content to expand.\nBy default, the following objects are expanded: `space`, `history`, `version`.\n\n- `childTypes.all` returns whether the content has attachments, comments, or child pages. \nUse this if you only need to check whether the content has children of a particular type.\n- `childTypes.attachment` returns whether the content has attachments.\n- `childTypes.comment` returns whether the content has comments.\n- `childTypes.page` retur"
+                    }
+                ]
+            }
+        },
+        "\/content\/{id}\/history\/{version}\/macro\/id\/{macroId}": {
+            "get": {
+                "summary": "Get macro body by macro ID",
+                "description": "Returns the body of a macro in storage format, for the given macro ID. \nThis includes information like the name of the macro, the body of the macro, \nand any macro parameters. This method is mainly used by Cloud apps.\n\nAbout the macro ID: When a macro is created in a new version of content, \nConfluence will generate a random ID for it, unless an ID is specified \n(by an app). The macro ID will look similar to this: '50884bd9-0cb8-41d5-98be-f80943c14f96'. \nThe ID is then persisted as new versions ",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesContentResourceGetMacroBodyByMacroIdGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of the content to be returned. If you don't know the content ID, \nuse [Get content](#api-content-get) and filter the results."
+                    },
+                    {
+                        "name": "version",
+                        "in": "path",
+                        "description": "The version of the content that contains the macro."
+                    },
+                    {
+                        "name": "macroId",
+                        "in": "path",
+                        "description": "The ID of the macro. This is usually passed by the app that the\nmacro is in. Otherwise, find the macro ID by querying the desired \ncontent and version, then expanding the body in storage format. \nFor example, '\/content\/196611\/version\/7?expand=content.body.storage'."
+                    }
+                ]
+            }
+        },
+        "\/content\/{id}\/label": {
+            "get": {
+                "summary": "Get labels for content",
+                "description": "Returns the labels on a piece of content.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: \n'View' permission for the space and permission to view the content if it is a page.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesContentLabelsResourceGetLabelsForContentGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of the content to be returned. If you don't know the content ID, \nuse [Get content](#api-content-get) and filter the results."
+                    },
+                    {
+                        "name": "prefix",
+                        "in": "query",
+                        "description": "Filters the results to labels with the specified prefix. If this parameter  \nis not specified, then labels with any prefix will be returned.\n\n- `global` prefix is used by default when a user adds a label \nvia the UI.\n- `my` prefix can be explicitly added by a user when adding a label \nvia the UI, e.g. 'my:example-label'. Also, when a page is selected as \na favourite, the 'my:favourite' label is automatically added.\n- `team` can used when adding labels via [Add labels to content](#api-content-id-"
+                    },
+                    {
+                        "name": "start",
+                        "in": "query",
+                        "description": "The starting index of the returned records."
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "The maximum number of records to return per page. \nNote, this may be restricted by fixed system limits."
+                    }
+                ]
+            },
+            "post": {
+                "summary": "Add labels to content",
+                "description": "Adds labels to a piece of content. Does not modify the existing labels.\n\nNotes:\n\n- Labels can also be added when creating content ([Create content](#api-content-post)).\n- Labels can be updated when updating content ([Update content](#api-content-id-put)). \nThis will delete the existing labels and replace them with the labels in \nthe request.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: \nPermission to update the content.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesContentLabelsResourceAddLabelsToContentPost",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of the content to be returned. If you don't know the content ID, \nuse [Get content](#api-content-get) and filter the results."
+                    }
+                ]
+            },
+            "delete": {
+                "summary": "Remove label from content using query parameter",
+                "description": "Removes a label from a piece of content. This is similar to \n[Remove label from content](#api-content-id-label-label-delete) \nexcept that the label name is specified via a query parameter. \n\nUse this method if the label name has \"\/\" characters, as \n[Remove label from content using query parameter](#api-content-id-label-delete) \ndoes not accept \"\/\" characters for the label name.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: \nPermission to update the content.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesContentLabelsResourceRemoveLabelFromContentUsing",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of the content to be returned. If you don't know the content ID, \nuse [Get content](#api-content-get) and filter the results."
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "The name of the label to be removed."
+                    }
+                ]
+            }
+        },
+        "\/content\/{id}\/label\/{label}": {
+            "delete": {
+                "summary": "Remove label from content",
+                "description": "Removes a label from a piece of content. This is similar to \n[Remove label from content using query parameter](#api-content-id-label-delete) \nexcept that the label name is specified via a path parameter. \n\nUse this method if the label name does not have \"\/\" characters, as the path \nparameter does not accept \"\/\" characters for security reasons. Otherwise, \nuse [Remove label from content using query parameter](#api-content-id-label-delete).\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozK",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesContentLabelsResourceRemoveLabelFromContentDele",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of the content to be returned. If you don't know the content ID, \nuse [Get content](#api-content-get) and filter the results."
+                    },
+                    {
+                        "name": "label",
+                        "in": "path",
+                        "description": "The name of the label to be removed."
+                    }
+                ]
+            }
+        },
+        "\/content\/{id}\/notification\/child-created": {
+            "get": {
+                "summary": "Get watches for page",
+                "description": "Returns the watches for a page. A user that watches a page will receive \nreceive notifications when the page is updated.\n\nIf you want to manage watches for a page, use the following `user` methods:\n\n- [Get content watch status for user](#api-user-watch-content-contentId-get)\n- [Add content watch](#api-user-watch-content-contentId-post)\n- [Remove content watch](#api-user-watch-content-contentId-delete)\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**:\nPermission to access th",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesContentNotificationsResourceGetWatchesForPageGe",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of the content to be returned. If you don't know the content ID, \nuse [Get content](#api-content-get) and filter the results."
+                    },
+                    {
+                        "name": "start",
+                        "in": "query",
+                        "description": "The starting index of the returned records."
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "The maximum number of records to return per page. \nNote, this may be restricted by fixed system limits."
+                    }
+                ]
+            }
+        },
+        "\/content\/{id}\/notification\/created": {
+            "get": {
+                "summary": "Get watches for space",
+                "description": "Returns all space watches for the space that the content is in. A user that \nwatches a space will receive receive notifications when any content in the \nspace is updated.\n\nIf you want to manage watches for a space, use the following `user` methods:\n\n- [Get space watch status for user](#api-user-watch-space-spaceKey-get)\n- [Add space watch](#api-user-watch-space-spaceKey-post)\n- [Remove space watch](#api-user-watch-space-spaceKey-delete)\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw)",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesContentNotificationsResourceGetWatchesForSpaceG",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of the content to be returned. If you don't know the content ID, \nuse [Get content](#api-content-get) and filter the results."
+                    },
+                    {
+                        "name": "start",
+                        "in": "query",
+                        "description": "The starting index of the returned records."
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "The maximum number of records to return per page. \nNote, this may be restricted by fixed system limits."
+                    }
+                ]
+            }
+        },
+        "\/content\/{id}\/pagehierarchy\/copy": {
+            "post": {
+                "summary": "Copy page hierarchy",
+                "description": "Copy page hierarchy allows the copying of an entire hierarchy of pages and their associated properties, permissions and attachments.\n The id path parameter refers to the content id of the page to copy, and the new parent of this copied page is defined using the destinationPageId in the request body.\n The titleOptions object defines the rules of renaming page titles during the copy;\n for example, search and replace can be used in conjunction to rewrite the copied page titles.\n\n Response example:\n",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesPageHierarchyResourceCopyPageHierarchyPost",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of the content to be returned. If you don't know the content ID, \nuse [Get content](#api-content-get) and filter the results."
+                    }
+                ]
+            }
+        },
+        "\/content\/{id}\/property": {
+            "get": {
+                "summary": "Get content properties",
+                "description": "Returns the properties for a piece of content. For more information \nabout content properties, see [Content properties in the REST API](https:\/\/developer.atlassian.com\/cloud\/confluence\/content-properties\/).\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: \n'View' permission for the space, and permission to view the content if it is a page.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesContentPropertyResourceGetContentPropertiesGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of the content to be returned. If you don't know the content ID, \nuse [Get content](#api-content-get) and filter the results."
+                    },
+                    {
+                        "name": "expand",
+                        "in": "query",
+                        "description": "A multi-value parameter indicating which properties of the content to expand.\nBy default, the following objects are expanded: `space`, `history`, `version`.\n\n- `childTypes.all` returns whether the content has attachments, comments, or child pages. \nUse this if you only need to check whether the content has children of a particular type.\n- `childTypes.attachment` returns whether the content has attachments.\n- `childTypes.comment` returns whether the content has comments.\n- `childTypes.page` retur"
+                    },
+                    {
+                        "name": "start",
+                        "in": "query",
+                        "description": "The starting index of the returned records."
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "The maximum number of records to return per page. \nNote, this may be restricted by fixed system limits."
+                    }
+                ]
+            },
+            "post": {
+                "summary": "Create content property",
+                "description": "Creates a property for an existing piece of content. For more information \nabout content properties, see [Content properties in the REST API](https:\/\/developer.atlassian.com\/cloud\/confluence\/content-properties\/).\n\nThis is the same as [Create content property for key](#api-content-id-property-key-post) \nexcept that the key is specified in the request body instead of as a \npath parameter.\n\nContent properties can also be added when creating a new piece of content \nby including them in the `metadata",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesContentPropertyResourceCreateContentPropertyPos",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of the content to be returned. If you don't know the content ID, \nuse [Get content](#api-content-get) and filter the results."
+                    }
+                ]
+            }
+        },
+        "\/content\/{id}\/property\/{key}": {
+            "get": {
+                "summary": "Get content property",
+                "description": "Returns a content property for a piece of content. For more information, see \n[Content properties in the REST API](https:\/\/developer.atlassian.com\/cloud\/confluence\/content-properties\/).\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: \n'View' permission for the space, and permission to view the content if it is a page.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesContentPropertyResourceGetContentPropertyGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of the content to be returned. If you don't know the content ID, \nuse [Get content](#api-content-get) and filter the results."
+                    },
+                    {
+                        "name": "key",
+                        "in": "path",
+                        "description": "The key of the content property."
+                    },
+                    {
+                        "name": "expand",
+                        "in": "query",
+                        "description": "A multi-value parameter indicating which properties of the content to expand.\nBy default, the following objects are expanded: `space`, `history`, `version`.\n\n- `childTypes.all` returns whether the content has attachments, comments, or child pages. \nUse this if you only need to check whether the content has children of a particular type.\n- `childTypes.attachment` returns whether the content has attachments.\n- `childTypes.comment` returns whether the content has comments.\n- `childTypes.page` retur"
+                    }
+                ]
+            },
+            "post": {
+                "summary": "Create content property for key",
+                "description": "Creates a property for an existing piece of content. For more information \nabout content properties, see [Content properties in the REST API](https:\/\/developer.atlassian.com\/cloud\/confluence\/content-properties\/).\n\nThis is the same as [Create content property](#api-content-id-property-post) \nexcept that the key is specified as a path parameter instead of in the \nrequest body.\n\nContent properties can also be added when creating a new piece of content \nby including them in the `metadata.properties`",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesContentPropertyResourceCreateContentPropertyForK",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of the content to be returned. If you don't know the content ID, \nuse [Get content](#api-content-get) and filter the results."
+                    },
+                    {
+                        "name": "key",
+                        "in": "path",
+                        "description": "The key of the content property."
+                    }
+                ]
+            },
+            "put": {
+                "summary": "Update content property",
+                "description": "Updates an existing content property. This method will also create a new \nproperty for a piece of content, if the property key does not exist and \nthe property version is 1. For more information about content properties, see \n[Content properties in the REST API](https:\/\/developer.atlassian.com\/cloud\/confluence\/content-properties\/).\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: \nPermission to update the content.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesContentPropertyResourceUpdateContentPropertyPut",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of the content to be returned. If you don't know the content ID, \nuse [Get content](#api-content-get) and filter the results."
+                    },
+                    {
+                        "name": "key",
+                        "in": "path",
+                        "description": "The key of the content property."
+                    }
+                ]
+            },
+            "delete": {
+                "summary": "Delete content property",
+                "description": "Deletes a content property. For more information about content properties, see \n[Content properties in the REST API](https:\/\/developer.atlassian.com\/cloud\/confluence\/content-properties\/).\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: \nPermission to update the content.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesContentPropertyResourceDeleteContentPropertyDel",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of the content to be returned. If you don't know the content ID, \nuse [Get content](#api-content-get) and filter the results."
+                    },
+                    {
+                        "name": "key",
+                        "in": "path",
+                        "description": "The key of the content property."
+                    }
+                ]
+            }
+        },
+        "\/content\/{id}\/restriction": {
+            "get": {
+                "summary": "Get restrictions",
+                "description": "Returns the restrictions on a piece of content.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: \nPermission to view the content.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesContentRestrictionResourceGetRestrictionsGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of the content to be returned. If you don't know the content ID, \nuse [Get content](#api-content-get) and filter the results."
+                    },
+                    {
+                        "name": "expand",
+                        "in": "query",
+                        "description": "A multi-value parameter indicating which properties of the content to expand.\nBy default, the following objects are expanded: `space`, `history`, `version`.\n\n- `childTypes.all` returns whether the content has attachments, comments, or child pages. \nUse this if you only need to check whether the content has children of a particular type.\n- `childTypes.attachment` returns whether the content has attachments.\n- `childTypes.comment` returns whether the content has comments.\n- `childTypes.page` retur"
+                    },
+                    {
+                        "name": "start",
+                        "in": "query",
+                        "description": "The starting index of the returned records."
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "The maximum number of records to return per page. \nNote, this may be restricted by fixed system limits."
+                    }
+                ]
+            },
+            "post": {
+                "summary": "Add restrictions",
+                "description": "Adds restrictions to a piece of content. Note, this does not change any \nexisting restrictions on the content.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: \nPermission to edit the content.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesContentRestrictionResourceAddRestrictionsPost",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of the content to be returned. If you don't know the content ID, \nuse [Get content](#api-content-get) and filter the results."
+                    },
+                    {
+                        "name": "expand",
+                        "in": "query",
+                        "description": "A multi-value parameter indicating which properties of the content to expand.\nBy default, the following objects are expanded: `space`, `history`, `version`.\n\n- `childTypes.all` returns whether the content has attachments, comments, or child pages. \nUse this if you only need to check whether the content has children of a particular type.\n- `childTypes.attachment` returns whether the content has attachments.\n- `childTypes.comment` returns whether the content has comments.\n- `childTypes.page` retur"
+                    }
+                ]
+            },
+            "put": {
+                "summary": "Update restrictions",
+                "description": "Updates restrictions for a piece of content. This removes the existing \nrestrictions and replaces them with the restrictions in the request.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: \nPermission to edit the content.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesContentRestrictionResourceUpdateRestrictionsPut",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of the content to be returned. If you don't know the content ID, \nuse [Get content](#api-content-get) and filter the results."
+                    },
+                    {
+                        "name": "expand",
+                        "in": "query",
+                        "description": "A multi-value parameter indicating which properties of the content to expand.\nBy default, the following objects are expanded: `space`, `history`, `version`.\n\n- `childTypes.all` returns whether the content has attachments, comments, or child pages. \nUse this if you only need to check whether the content has children of a particular type.\n- `childTypes.attachment` returns whether the content has attachments.\n- `childTypes.comment` returns whether the content has comments.\n- `childTypes.page` retur"
+                    }
+                ]
+            },
+            "delete": {
+                "summary": "Delete restrictions",
+                "description": "Removes all restrictions (read and update) on a piece of content.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: \nPermission to edit the content.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesContentRestrictionResourceDeleteRestrictionsDel",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of the content to be returned. If you don't know the content ID, \nuse [Get content](#api-content-get) and filter the results."
+                    },
+                    {
+                        "name": "expand",
+                        "in": "query",
+                        "description": "A multi-value parameter indicating which properties of the content to expand.\nBy default, the following objects are expanded: `space`, `history`, `version`.\n\n- `childTypes.all` returns whether the content has attachments, comments, or child pages. \nUse this if you only need to check whether the content has children of a particular type.\n- `childTypes.attachment` returns whether the content has attachments.\n- `childTypes.comment` returns whether the content has comments.\n- `childTypes.page` retur"
+                    }
+                ]
+            }
+        },
+        "\/content\/{id}\/restriction\/byOperation": {
+            "get": {
+                "summary": "Get restrictions by operation",
+                "description": "Returns restrictions on a piece of content by operation. This method is \nsimilar to [Get restrictions](#api-content-id-restriction-get) except that \nthe operations are properties of the return object, rather than items in \na results array. \n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: \nPermission to view the content.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesContentRestrictionResourceGetRestrictionsByOpera",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of the content to be returned. If you don't know the content ID, \nuse [Get content](#api-content-get) and filter the results."
+                    },
+                    {
+                        "name": "expand",
+                        "in": "query",
+                        "description": "A multi-value parameter indicating which properties of the content to expand.\nBy default, the following objects are expanded: `space`, `history`, `version`.\n\n- `childTypes.all` returns whether the content has attachments, comments, or child pages. \nUse this if you only need to check whether the content has children of a particular type.\n- `childTypes.attachment` returns whether the content has attachments.\n- `childTypes.comment` returns whether the content has comments.\n- `childTypes.page` retur"
+                    }
+                ]
+            }
+        },
+        "\/content\/{id}\/restriction\/byOperation\/{operationKey}": {
+            "get": {
+                "summary": "Get restrictions for operation",
+                "description": "Returns the restictions on a piece of content for a given operation (read \nor update).\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: \nPermission to view the content.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesContentRestrictionResourceGetRestrictionsForOper",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of the content to be returned. If you don't know the content ID, \nuse [Get content](#api-content-get) and filter the results."
+                    },
+                    {
+                        "name": "operationKey",
+                        "in": "path",
+                        "description": "The operation type of the restrictions to be returned."
+                    },
+                    {
+                        "name": "expand",
+                        "in": "query",
+                        "description": "A multi-value parameter indicating which properties of the content to expand.\nBy default, the following objects are expanded: `space`, `history`, `version`.\n\n- `childTypes.all` returns whether the content has attachments, comments, or child pages. \nUse this if you only need to check whether the content has children of a particular type.\n- `childTypes.attachment` returns whether the content has attachments.\n- `childTypes.comment` returns whether the content has comments.\n- `childTypes.page` retur"
+                    },
+                    {
+                        "name": "start",
+                        "in": "query",
+                        "description": "The starting index of the returned records."
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "The maximum number of records to return per page. \nNote, this may be restricted by fixed system limits."
+                    }
+                ]
+            }
+        },
+        "\/content\/{id}\/restriction\/byOperation\/{operationKey}\/group\/{groupName}": {
+            "get": {
+                "summary": "Get content restriction status for group",
+                "description": "Returns whether the specified content restriction applies to a group. \nFor example, if the 'admins' group has permission to read a page with an \nID of 123, then the following request will return true:\n\n`https:\/\/your-domain.atlassian.net\/wiki\/rest\/api\/content\/123\/restriction\/byOperation\/read\/group\/admins`\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: \nPermission to view the content.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesContentRestrictionResourceGetContentRestrictionS",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of the content to be returned. If you don't know the content ID, \nuse [Get content](#api-content-get) and filter the results."
+                    },
+                    {
+                        "name": "operationKey",
+                        "in": "path",
+                        "description": "The operation type of the restrictions to be returned."
+                    },
+                    {
+                        "name": "groupName",
+                        "in": "path",
+                        "description": "The name of the group to be queried for whether the content restriction \napplies to it."
+                    }
+                ]
+            },
+            "put": {
+                "summary": "Add group to content restriction",
+                "description": "Adds a group to a content restriction. That is, grant read or update \npermission to the group for a piece of content.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: \nPermission to edit the content.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesContentRestrictionResourceAddGroupToContentRestr",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of the content to be returned. If you don't know the content ID, \nuse [Get content](#api-content-get) and filter the results."
+                    },
+                    {
+                        "name": "operationKey",
+                        "in": "path",
+                        "description": "The operation type of the restrictions to be returned."
+                    },
+                    {
+                        "name": "groupName",
+                        "in": "path",
+                        "description": "The name of the group to be queried for whether the content restriction \napplies to it."
+                    }
+                ]
+            },
+            "delete": {
+                "summary": "Remove group from content restriction",
+                "description": "Removes a group from a content restriction. That is, remove read or update \npermission for the group for a piece of content.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: \nPermission to edit the content.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesContentRestrictionResourceRemoveGroupFromContent",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of the content to be returned. If you don't know the content ID, \nuse [Get content](#api-content-get) and filter the results."
+                    },
+                    {
+                        "name": "operationKey",
+                        "in": "path",
+                        "description": "The operation type of the restrictions to be returned."
+                    },
+                    {
+                        "name": "groupName",
+                        "in": "path",
+                        "description": "The name of the group to be queried for whether the content restriction \napplies to it."
+                    }
+                ]
+            }
+        },
+        "\/content\/{id}\/restriction\/byOperation\/{operationKey}\/user": {
+            "get": {
+                "summary": "Get content restriction status for user",
+                "description": "Returns whether the specified content restriction applies to a user. \nFor example, if the user 'admin' has permission to read a page with an \nID of 123, then the following request will return true:\n\n`https:\/\/your-domain.atlassian.net\/wiki\/rest\/api\/content\/123\/restriction\/byOperation\/read\/user?username=admin`\n\nOne of `key`, `username`, or `accountId` must be specified as a query \nparameter to identify the user.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: \nPermission to",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesContentRestrictionResourceGetContentRestrictionS",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of the content to be returned. If you don't know the content ID, \nuse [Get content](#api-content-get) and filter the results."
+                    },
+                    {
+                        "name": "operationKey",
+                        "in": "path",
+                        "description": "The operation type of the restrictions to be returned."
+                    },
+                    {
+                        "name": "key",
+                        "in": "query",
+                        "description": "The key of the user to be queried for whether the content \nrestriction applies to it."
+                    },
+                    {
+                        "name": "userName",
+                        "in": "query",
+                        "description": "The username of the user to be queried for whether the content \nrestriction applies to it."
+                    },
+                    {
+                        "name": "accountId",
+                        "in": "query",
+                        "description": "The account ID of the user to be queried for whether the content \nrestriction applies to it."
+                    }
+                ]
+            },
+            "put": {
+                "summary": "Add user to content restriction",
+                "description": "Adds a user to a content restriction. That is, grant read or update \npermission to the user for a piece of content.\n\nOne of `key`, `username`, or `accountId` must be specified as a query \nparameter to identify the user.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: \nPermission to edit the content.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesContentRestrictionResourceAddUserToContentRestri",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of the content to be returned. If you don't know the content ID, \nuse [Get content](#api-content-get) and filter the results."
+                    },
+                    {
+                        "name": "operationKey",
+                        "in": "path",
+                        "description": "The operation type of the restrictions to be returned."
+                    },
+                    {
+                        "name": "key",
+                        "in": "query",
+                        "description": "The key of the user to be queried for whether the content \nrestriction applies to it."
+                    },
+                    {
+                        "name": "userName",
+                        "in": "query",
+                        "description": "The username of the user to be queried for whether the content \nrestriction applies to it."
+                    },
+                    {
+                        "name": "accountId",
+                        "in": "query",
+                        "description": "The account ID of the user to be queried for whether the content \nrestriction applies to it."
+                    }
+                ]
+            },
+            "delete": {
+                "summary": "Remove user from content restriction",
+                "description": "Removes a group from a content restriction. That is, remove read or update \npermission for the group for a piece of content.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: \nPermission to edit the content.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesContentRestrictionResourceRemoveUserFromContentR",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of the content to be returned. If you don't know the content ID, \nuse [Get content](#api-content-get) and filter the results."
+                    },
+                    {
+                        "name": "operationKey",
+                        "in": "path",
+                        "description": "The operation type of the restrictions to be returned."
+                    },
+                    {
+                        "name": "key",
+                        "in": "query",
+                        "description": "The key of the user to be queried for whether the content \nrestriction applies to it."
+                    },
+                    {
+                        "name": "userName",
+                        "in": "query",
+                        "description": "The username of the user to be queried for whether the content \nrestriction applies to it."
+                    },
+                    {
+                        "name": "accountId",
+                        "in": "query",
+                        "description": "The account ID of the user to be queried for whether the content \nrestriction applies to it."
+                    }
+                ]
+            }
+        },
+        "\/content\/{id}\/version": {
+            "get": {
+                "summary": "Get content versions",
+                "description": "Returns the versions for a piece of content in descending order.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: \nPermission to view the content. If the content is a blog post, 'View' permission \nfor the space is required.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesContentVersionResourceGetContentVersionsGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of the content to be returned. If you don't know the content ID, \nuse [Get content](#api-content-get) and filter the results."
+                    },
+                    {
+                        "name": "start",
+                        "in": "query",
+                        "description": "The starting index of the returned records."
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "The maximum number of records to return per page. \nNote, this may be restricted by fixed system limits."
+                    },
+                    {
+                        "name": "expand",
+                        "in": "query",
+                        "description": "A multi-value parameter indicating which properties of the content to expand.\nBy default, the following objects are expanded: `space`, `history`, `version`.\n\n- `childTypes.all` returns whether the content has attachments, comments, or child pages. \nUse this if you only need to check whether the content has children of a particular type.\n- `childTypes.attachment` returns whether the content has attachments.\n- `childTypes.comment` returns whether the content has comments.\n- `childTypes.page` retur"
+                    }
+                ]
+            },
+            "post": {
+                "summary": "Restore content version",
+                "description": "Restores a historical version to be the latest version. That is, a new version \nis created with the content of the historical version.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: \nPermission to update the content.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesContentVersionResourceRestoreContentVersionPost",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of the content to be returned. If you don't know the content ID, \nuse [Get content](#api-content-get) and filter the results."
+                    },
+                    {
+                        "name": "expand",
+                        "in": "query",
+                        "description": "A multi-value parameter indicating which properties of the content to expand.\nBy default, the following objects are expanded: `space`, `history`, `version`.\n\n- `childTypes.all` returns whether the content has attachments, comments, or child pages. \nUse this if you only need to check whether the content has children of a particular type.\n- `childTypes.attachment` returns whether the content has attachments.\n- `childTypes.comment` returns whether the content has comments.\n- `childTypes.page` retur"
+                    }
+                ]
+            }
+        },
+        "\/content\/{id}\/version\/{versionNumber}": {
+            "get": {
+                "summary": "Get content version",
+                "description": "Returns a version for a piece of content.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: \nPermission to view the content. If the content is a blog post, 'View' permission \nfor the space is required.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesContentVersionResourceGetContentVersionGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of the content to be returned. If you don't know the content ID, \nuse [Get content](#api-content-get) and filter the results."
+                    },
+                    {
+                        "name": "versionNumber",
+                        "in": "path",
+                        "description": "The number of the version to be retrieved."
+                    },
+                    {
+                        "name": "expand",
+                        "in": "query",
+                        "description": "A multi-value parameter indicating which properties of the content to expand.\nBy default, the following objects are expanded: `space`, `history`, `version`.\n\n- `childTypes.all` returns whether the content has attachments, comments, or child pages. \nUse this if you only need to check whether the content has children of a particular type.\n- `childTypes.attachment` returns whether the content has attachments.\n- `childTypes.comment` returns whether the content has comments.\n- `childTypes.page` retur"
+                    }
+                ]
+            },
+            "delete": {
+                "summary": "Delete content version",
+                "description": "Delete a historical version. This does not delete the changes made to the \ncontent in that version, rather the changes for the deleted version are \nrolled up into the next version. Note, you cannot delete the current version.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: \nPermission to update the content.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesContentVersionResourceDeleteContentVersionDelet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of the content to be returned. If you don't know the content ID, \nuse [Get content](#api-content-get) and filter the results."
+                    },
+                    {
+                        "name": "versionNumber",
+                        "in": "path",
+                        "description": "The number of the version to be retrieved."
+                    }
+                ]
+            }
+        },
+        "\/contentbody\/convert\/{to}": {
+            "post": {
+                "summary": "Convert content body",
+                "description": "Converts a content body from one format to another format.\n\nSupported conversions:\n\n- storage: view, export_view, styled_view, editor\n- editor: storage\n- view: none\n- export_view: none\n- styled_view: none\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**:\nIf request specifies 'contentIdContext', 'View' permission for the space, and permission to view the content.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesContentBodyResourceConvertContentBodyPost",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "to",
+                        "in": "path",
+                        "description": "The name of the target format for the content body."
+                    },
+                    {
+                        "name": "expand",
+                        "in": "query",
+                        "description": "A multi-value parameter indicating which properties of the content to expand.\nBy default, the following objects are expanded: `space`, `history`, `version`.\n\n- `childTypes.all` returns whether the content has attachments, comments, or child pages. \nUse this if you only need to check whether the content has children of a particular type.\n- `childTypes.attachment` returns whether the content has attachments.\n- `childTypes.comment` returns whether the content has comments.\n- `childTypes.page` retur"
+                    },
+                    {
+                        "name": "spaceKeyContext",
+                        "in": "query",
+                        "description": "The space key used for resolving embedded content (page includes, \nfiles, and links) in the content body. For example, if the source content \ncontains the link `<ac:link><ri:page ri:content-title=\"Example page\" \/><ac:link>` \nand the `spaceKeyContext=TEST` parameter is provided, then the link \nwill be converted to a link to the \"Example page\" page in the \"TEST\" space."
+                    },
+                    {
+                        "name": "contentIdContext",
+                        "in": "query",
+                        "description": "The content ID used to find the space for resolving embedded content \n(page includes, files, and links) in the content body. For example, \nif the source content contains the link `<ac:link><ri:page ri:content-title=\"Example page\" \/><ac:link>` \nand the `contentIdContext=123` parameter is provided, then the link \nwill be converted to a link to the \"Example page\" page in the same space \nthat has the content with ID=123. Note, `spaceKeyContext` will be ignored \nif this parameter is provided."
+                    },
+                    {
+                        "name": "embeddedContentRender",
+                        "in": "query",
+                        "description": "The version of embedded content (e.g. attachments) to render. \n\n- <code>current<\/code> renders the latest version of the embedded content.\n- <code>version-at-save<\/code> renders the version of the embedded content \nat the time of save."
+                    }
+                ]
+            }
+        },
+        "\/group": {
+            "get": {
+                "summary": "Get groups",
+                "description": "Returns all user groups. The returned groups are ordered alphabetically in\nascending order by group name.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**:\nPermission to access the Confluence site ('Can use' global permission).",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesGroupResourceGetGroupsGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "start",
+                        "in": "query",
+                        "description": "The starting index of the returned records."
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "The maximum number of records to return per page. \nNote, this may be restricted by fixed system limits."
+                    }
+                ]
+            }
+        },
+        "\/group\/{groupName}": {
+            "get": {
+                "summary": "Get group",
+                "description": "Returns a user group for a given group name.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**:\nPermission to access the Confluence site ('Can use' global permission).",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesGroupResourceGetGroupGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "groupName",
+                        "in": "path",
+                        "description": "The name of the group to be queried for whether the content restriction \napplies to it."
+                    }
+                ]
+            }
+        },
+        "\/group\/{groupName}\/member": {
+            "get": {
+                "summary": "Get group members",
+                "description": "Returns the users that are members of a group.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**:\nPermission to access the Confluence site ('Can use' global permission).",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesGroupResourceGetGroupMembersGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "groupName",
+                        "in": "path",
+                        "description": "The name of the group to be queried for whether the content restriction \napplies to it."
+                    },
+                    {
+                        "name": "start",
+                        "in": "query",
+                        "description": "The starting index of the returned records."
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "The maximum number of records to return per page. \nNote, this may be restricted by fixed system limits."
+                    }
+                ]
+            }
+        },
+        "\/longtask": {
+            "get": {
+                "summary": "Get long-running tasks",
+                "description": "Returns information about all active long-running tasks (e.g. space export), \nsuch as how long each task has been running and the percentage of each task \nthat has completed.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**:\nPermission to access the Confluence site ('Can use' global permission).",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesLongTaskResourceGetTasksGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "start",
+                        "in": "query",
+                        "description": "The starting index of the returned records."
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "The maximum number of records to return per page. \nNote, this may be restricted by fixed system limits."
+                    }
+                ]
+            }
+        },
+        "\/longtask\/{id}": {
+            "get": {
+                "summary": "Get long-running task",
+                "description": "Returns information about an active long-running task (e.g. space export), \nsuch as how long it has been running and the percentage of the task that \nhas completed.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**:\nPermission to access the Confluence site ('Can use' global permission).",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesLongTaskResourceGetTaskGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of the content to be returned. If you don't know the content ID, \nuse [Get content](#api-content-get) and filter the results."
+                    }
+                ]
+            }
+        },
+        "\/relation\/{relationName}\/from\/{sourceType}\/{sourceKey}\/to\/{targetType}": {
+            "get": {
+                "summary": "Find target entities related to a source entity",
+                "description": "Returns all target entities that have a particular relationship to the \nsource entity. Note, relationships are one way.\n\nFor example, the following method finds all content that the current user \nhas an 'ignore' relationship with:\n`GET https:\/\/your-domain.atlassian.net\/wiki\/rest\/api\/relation\/ignore\/from\/user\/current\/to\/content`\nNote, 'ignore' is an example custom relationship type.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: \nPermission to view both the target entity ",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesRelationResourceFindTargetFromSourceGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "relationName",
+                        "in": "path",
+                        "description": "The name of the relationship. This method supports relationships created via \n[Create relationship](#api-relation-relationName-from-sourceType-sourceKey-to-targetType-targetKey-put). \nNote, this method does not support 'favourite' relationships."
+                    },
+                    {
+                        "name": "sourceType",
+                        "in": "path",
+                        "description": "The source entity type of the relationship."
+                    },
+                    {
+                        "name": "sourceKey",
+                        "in": "path",
+                        "description": "- The identifier for the source entity:\n\n- If `sourceType` is 'user', then specify either 'current' (logged-in \n  user) or the user key.\n- If `sourceType` is 'content', then specify the content ID.\n- If `sourceType` is 'space', then specify the space key."
+                    },
+                    {
+                        "name": "targetType",
+                        "in": "path",
+                        "description": "The target entity type of the relationship."
+                    },
+                    {
+                        "name": "sourceStatus",
+                        "in": "query",
+                        "description": "The status of the source. This parameter is only used when the\n`sourceType` is 'content'."
+                    },
+                    {
+                        "name": "targetStatus",
+                        "in": "query",
+                        "description": "The status of the target. This parameter is only used when the\n`targetType` is 'content'."
+                    },
+                    {
+                        "name": "sourceVersion",
+                        "in": "query",
+                        "description": "The version of the source. This parameter is only used when the\n`sourceType` is 'content' and the `sourceStatus` is 'historical'."
+                    },
+                    {
+                        "name": "targetVersion",
+                        "in": "query",
+                        "description": "The version of the target. This parameter is only used when the\n`targetType` is 'content' and the `targetStatus` is 'historical'."
+                    },
+                    {
+                        "name": "expand",
+                        "in": "query",
+                        "description": "A multi-value parameter indicating which properties of the content to expand.\nBy default, the following objects are expanded: `space`, `history`, `version`.\n\n- `childTypes.all` returns whether the content has attachments, comments, or child pages. \nUse this if you only need to check whether the content has children of a particular type.\n- `childTypes.attachment` returns whether the content has attachments.\n- `childTypes.comment` returns whether the content has comments.\n- `childTypes.page` retur"
+                    },
+                    {
+                        "name": "start",
+                        "in": "query",
+                        "description": "The starting index of the returned records."
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "The maximum number of records to return per page. \nNote, this may be restricted by fixed system limits."
+                    }
+                ]
+            }
+        },
+        "\/relation\/{relationName}\/from\/{sourceType}\/{sourceKey}\/to\/{targetType}\/{targetKey}": {
+            "get": {
+                "summary": "Find relationship from source to target",
+                "description": "Find whether a particular type of relationship exists from a source \nentity to a target entity. Note, relationships are one way.\n\nFor example, you can use this method to find whether the current user has \nselected a particular page as a favorite (i.e. 'save for later'):\n`GET https:\/\/your-domain.atlassian.net\/wiki\/rest\/api\/relation\/favourite\/from\/user\/current\/to\/content\/123`\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: \nPermission to view both the target entity and sour",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesRelationResourceGetRelationshipGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "relationName",
+                        "in": "path",
+                        "description": "The name of the relationship. This method supports relationships created via \n[Create relationship](#api-relation-relationName-from-sourceType-sourceKey-to-targetType-targetKey-put). \nNote, this method does not support 'favourite' relationships."
+                    },
+                    {
+                        "name": "sourceType",
+                        "in": "path",
+                        "description": "The source entity type of the relationship."
+                    },
+                    {
+                        "name": "sourceKey",
+                        "in": "path",
+                        "description": "- The identifier for the source entity:\n\n- If `sourceType` is 'user', then specify either 'current' (logged-in \n  user) or the user key.\n- If `sourceType` is 'content', then specify the content ID.\n- If `sourceType` is 'space', then specify the space key."
+                    },
+                    {
+                        "name": "targetType",
+                        "in": "path",
+                        "description": "The target entity type of the relationship."
+                    },
+                    {
+                        "name": "targetKey",
+                        "in": "path",
+                        "description": "- The identifier for the target entity:\n\n- If `sourceType` is 'user', then specify either 'current' (logged-in \n  user) or the user key.\n- If `sourceType` is 'content', then specify the content ID.\n- If `sourceType` is 'space', then specify the space key."
+                    },
+                    {
+                        "name": "sourceStatus",
+                        "in": "query",
+                        "description": "The status of the source. This parameter is only used when the\n`sourceType` is 'content'."
+                    },
+                    {
+                        "name": "targetStatus",
+                        "in": "query",
+                        "description": "The status of the target. This parameter is only used when the\n`targetType` is 'content'."
+                    },
+                    {
+                        "name": "sourceVersion",
+                        "in": "query",
+                        "description": "The version of the source. This parameter is only used when the\n`sourceType` is 'content' and the `sourceStatus` is 'historical'."
+                    },
+                    {
+                        "name": "targetVersion",
+                        "in": "query",
+                        "description": "The version of the target. This parameter is only used when the\n`targetType` is 'content' and the `targetStatus` is 'historical'."
+                    },
+                    {
+                        "name": "expand",
+                        "in": "query",
+                        "description": "A multi-value parameter indicating which properties of the content to expand.\nBy default, the following objects are expanded: `space`, `history`, `version`.\n\n- `childTypes.all` returns whether the content has attachments, comments, or child pages. \nUse this if you only need to check whether the content has children of a particular type.\n- `childTypes.attachment` returns whether the content has attachments.\n- `childTypes.comment` returns whether the content has comments.\n- `childTypes.page` retur"
+                    }
+                ]
+            },
+            "put": {
+                "summary": "Create relationship",
+                "description": "Creates a relationship between two entities (user, space, content). The \n'favourite' relationship is supported by default, but you can use this method \nto create any type of relationship between two entities.\n\nFor example, the following method creates a 'sibling' relationship between \ntwo pieces of content:\n`GET https:\/\/your-domain.atlassian.net\/wiki\/rest\/api\/relation\/sibling\/from\/content\/123\/to\/content\/456`\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: \nPermission to a",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesRelationResourceCreateRelationshipPut",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "relationName",
+                        "in": "path",
+                        "description": "The name of the relationship. This method supports relationships created via \n[Create relationship](#api-relation-relationName-from-sourceType-sourceKey-to-targetType-targetKey-put). \nNote, this method does not support 'favourite' relationships."
+                    },
+                    {
+                        "name": "sourceType",
+                        "in": "path",
+                        "description": "The source entity type of the relationship."
+                    },
+                    {
+                        "name": "sourceKey",
+                        "in": "path",
+                        "description": "- The identifier for the source entity:\n\n- If `sourceType` is 'user', then specify either 'current' (logged-in \n  user) or the user key.\n- If `sourceType` is 'content', then specify the content ID.\n- If `sourceType` is 'space', then specify the space key."
+                    },
+                    {
+                        "name": "targetType",
+                        "in": "path",
+                        "description": "The target entity type of the relationship."
+                    },
+                    {
+                        "name": "targetKey",
+                        "in": "path",
+                        "description": "- The identifier for the target entity:\n\n- If `sourceType` is 'user', then specify either 'current' (logged-in \n  user) or the user key.\n- If `sourceType` is 'content', then specify the content ID.\n- If `sourceType` is 'space', then specify the space key."
+                    },
+                    {
+                        "name": "sourceStatus",
+                        "in": "query",
+                        "description": "The status of the source. This parameter is only used when the\n`sourceType` is 'content'."
+                    },
+                    {
+                        "name": "targetStatus",
+                        "in": "query",
+                        "description": "The status of the target. This parameter is only used when the\n`targetType` is 'content'."
+                    },
+                    {
+                        "name": "sourceVersion",
+                        "in": "query",
+                        "description": "The version of the source. This parameter is only used when the\n`sourceType` is 'content' and the `sourceStatus` is 'historical'."
+                    },
+                    {
+                        "name": "targetVersion",
+                        "in": "query",
+                        "description": "The version of the target. This parameter is only used when the\n`targetType` is 'content' and the `targetStatus` is 'historical'."
+                    }
+                ]
+            },
+            "delete": {
+                "summary": "Delete",
+                "description": "Deletes a relationship between two entities (user, space, content).\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: \nPermission to access the Confluence site ('Can use' global permission). \nFor favourite relationships, the current user can only delete their own \nfavourite relationships. A space administrator can delete favourite \nrelationships for any user.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesRelationResourceDeleteDelete",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "relationName",
+                        "in": "path",
+                        "description": "The name of the relationship. This method supports relationships created via \n[Create relationship](#api-relation-relationName-from-sourceType-sourceKey-to-targetType-targetKey-put). \nNote, this method does not support 'favourite' relationships."
+                    },
+                    {
+                        "name": "sourceType",
+                        "in": "path",
+                        "description": "The source entity type of the relationship."
+                    },
+                    {
+                        "name": "sourceKey",
+                        "in": "path",
+                        "description": "- The identifier for the source entity:\n\n- If `sourceType` is 'user', then specify either 'current' (logged-in \n  user) or the user key.\n- If `sourceType` is 'content', then specify the content ID.\n- If `sourceType` is 'space', then specify the space key."
+                    },
+                    {
+                        "name": "targetType",
+                        "in": "path",
+                        "description": "The target entity type of the relationship."
+                    },
+                    {
+                        "name": "targetKey",
+                        "in": "path",
+                        "description": "- The identifier for the target entity:\n\n- If `sourceType` is 'user', then specify either 'current' (logged-in \n  user) or the user key.\n- If `sourceType` is 'content', then specify the content ID.\n- If `sourceType` is 'space', then specify the space key."
+                    },
+                    {
+                        "name": "sourceStatus",
+                        "in": "query",
+                        "description": "The status of the source. This parameter is only used when the\n`sourceType` is 'content'."
+                    },
+                    {
+                        "name": "targetStatus",
+                        "in": "query",
+                        "description": "The status of the target. This parameter is only used when the\n`targetType` is 'content'."
+                    },
+                    {
+                        "name": "sourceVersion",
+                        "in": "query",
+                        "description": "The version of the source. This parameter is only used when the\n`sourceType` is 'content' and the `sourceStatus` is 'historical'."
+                    },
+                    {
+                        "name": "targetVersion",
+                        "in": "query",
+                        "description": "The version of the target. This parameter is only used when the\n`targetType` is 'content' and the `targetStatus` is 'historical'."
+                    }
+                ]
+            }
+        },
+        "\/relation\/{relationName}\/to\/{targetType}\/{targetKey}\/from\/{sourceType}": {
+            "get": {
+                "summary": "Find target entities related to a source entity",
+                "description": "Returns all target entities that have a particular relationship to the \nsource entity. Note, relationships are one way.\n\nFor example, the following method finds all users that have a 'collaborator' \nrelationship to a piece of content with an ID of '1234':\n`GET https:\/\/your-domain.atlassian.net\/wiki\/rest\/api\/relation\/collaborator\/to\/content\/1234\/from\/user`\nNote, 'collaborator' is an example custom relationship type.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: \nPermissi",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesRelationResourceFindSourcesForTargetGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "relationName",
+                        "in": "path",
+                        "description": "The name of the relationship. This method supports relationships created via \n[Create relationship](#api-relation-relationName-from-sourceType-sourceKey-to-targetType-targetKey-put). \nNote, this method does not support 'favourite' relationships."
+                    },
+                    {
+                        "name": "sourceType",
+                        "in": "path",
+                        "description": "The source entity type of the relationship."
+                    },
+                    {
+                        "name": "targetType",
+                        "in": "path",
+                        "description": "The target entity type of the relationship."
+                    },
+                    {
+                        "name": "targetKey",
+                        "in": "path",
+                        "description": "- The identifier for the target entity:\n\n- If `sourceType` is 'user', then specify either 'current' (logged-in \n  user) or the user key.\n- If `sourceType` is 'content', then specify the content ID.\n- If `sourceType` is 'space', then specify the space key."
+                    },
+                    {
+                        "name": "sourceStatus",
+                        "in": "query",
+                        "description": "The status of the source. This parameter is only used when the\n`sourceType` is 'content'."
+                    },
+                    {
+                        "name": "targetStatus",
+                        "in": "query",
+                        "description": "The status of the target. This parameter is only used when the\n`targetType` is 'content'."
+                    },
+                    {
+                        "name": "sourceVersion",
+                        "in": "query",
+                        "description": "The version of the source. This parameter is only used when the\n`sourceType` is 'content' and the `sourceStatus` is 'historical'."
+                    },
+                    {
+                        "name": "targetVersion",
+                        "in": "query",
+                        "description": "The version of the target. This parameter is only used when the\n`targetType` is 'content' and the `targetStatus` is 'historical'."
+                    },
+                    {
+                        "name": "expand",
+                        "in": "query",
+                        "description": "A multi-value parameter indicating which properties of the content to expand.\nBy default, the following objects are expanded: `space`, `history`, `version`.\n\n- `childTypes.all` returns whether the content has attachments, comments, or child pages. \nUse this if you only need to check whether the content has children of a particular type.\n- `childTypes.attachment` returns whether the content has attachments.\n- `childTypes.comment` returns whether the content has comments.\n- `childTypes.page` retur"
+                    },
+                    {
+                        "name": "start",
+                        "in": "query",
+                        "description": "The starting index of the returned records."
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "The maximum number of records to return per page. \nNote, this may be restricted by fixed system limits."
+                    }
+                ]
+            }
+        },
+        "\/search": {
+            "get": {
+                "summary": "Search",
+                "description": "Searches for content using the \n[Confluence Query Language (CQL)](https:\/\/developer.atlassian.com\/cloud\/confluence\/advanced-searching-using-cql\/)\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: \nPermission to view the entities. Note, only entities that the user has \npermission to view will be returned.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesSearchResourceSearchGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "cql",
+                        "in": "query",
+                        "description": "The CQL string that is used to find the requested content."
+                    },
+                    {
+                        "name": "cqlcontext",
+                        "in": "query",
+                        "description": "The space, content, and content status to execute the search against. \nSpecify this as an object with the following properties:\n\n- `spaceKey` Key of the space to search against. Optional.\n- `contentId` ID of the content to search against. Optional. Must \nbe in the space spacified by `spaceKey`.\n- `contentStatuses` Content statuses to search against. Optional."
+                    },
+                    {
+                        "name": "start",
+                        "in": "query",
+                        "description": "The starting index of the returned records."
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "The maximum number of records to return per page. \nNote, this may be restricted by fixed system limits."
+                    },
+                    {
+                        "name": "includeArchivedSpaces",
+                        "in": "query",
+                        "description": "Include content from archived spaces in the results."
+                    }
+                ]
+            }
+        },
+        "\/settings\/lookandfeel": {
+            "get": {
+                "summary": "Get look and feel settings",
+                "description": "Returns the look and feel settings for the site or a single space. This \nincludes attributes such as the color scheme, padding, and border radius.\n\nThe look and feel settings for a space can be inherited from the global \nlook and feel settings or provided by a theme.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: \nNone",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesLookAndFeelResourceGetLookAndFeelSettingsGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "spaceKey",
+                        "in": "query",
+                        "description": "The key of the space to be queried for its content."
+                    }
+                ]
+            }
+        },
+        "\/settings\/lookandfeel\/custom": {
+            "post": {
+                "summary": "Update look and feel settings",
+                "description": "Updates the look and feel settings for the site or for a single space.\nIf custom settings exist, they are updated. If no custom settings exist, \nthen a set of custom settings is created.\n\nNote, if a theme is selected for a space, the space look and feel settings \nare provided by the theme and cannot be overridden.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: \n'Admin' permission for the space.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesLookAndFeelResourceUpdateLookAndFeelSettingsPos",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "spaceKey",
+                        "in": "query",
+                        "description": "The key of the space to be queried for its content."
+                    }
+                ]
+            },
+            "delete": {
+                "summary": "Reset look and feel settings",
+                "description": "Resets the custom look and feel settings for the site or a single space.\nThis changes the values of the custom settings to be the same as the \ndefault settings. It does not change which settings (default or custom) \nare selected. Note, the default space settings are inherited from the \ncurrent global settings.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: \n'Admin' permission for the space.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesLookAndFeelResourceResetLookAndFeelSettingsDele",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "spaceKey",
+                        "in": "query",
+                        "description": "The key of the space to be queried for its content."
+                    }
+                ]
+            }
+        },
+        "\/settings\/lookandfeel\/selected": {
+            "put": {
+                "summary": "Set look and feel settings",
+                "description": "Sets the look and feel settings to either the default settings or the\ncustom settings, for the site or a single space. Note, the default \nspace settings are inherited from the current global settings.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: \n'Admin' permission for the space.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesLookAndFeelResourceSetLookAndFeelSettingsPut",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "spaceKey",
+                        "in": "query",
+                        "description": "The key of the space to be queried for its content."
+                    }
+                ]
+            }
+        },
+        "\/settings\/systemInfo": {
+            "get": {
+                "summary": "Get system info",
+                "description": "Returns the system information for the Confluence Cloud tenant. This\ninformation is used by Atlassian.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: \nPermission to access the Confluence site ('Can use' global permission).",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesSystemInfoResourceGetSystemInfoGet",
+                "deprecated": 0,
+                "parameters": []
+            }
+        },
+        "\/settings\/theme": {
+            "get": {
+                "summary": "Get themes",
+                "description": "Returns all themes, not including the default theme.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: None",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesThemeResourceGetThemesGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "start",
+                        "in": "query",
+                        "description": "The starting index of the returned records."
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "The maximum number of records to return per page. \nNote, this may be restricted by fixed system limits."
+                    }
+                ]
+            }
+        },
+        "\/settings\/theme\/selected": {
+            "get": {
+                "summary": "Get global theme",
+                "description": "Returns the globally assigned theme.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: None",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesThemeResourceGetGlobalThemeGet",
+                "deprecated": 0,
+                "parameters": []
+            }
+        },
+        "\/settings\/theme\/{themeKey}": {
+            "get": {
+                "summary": "Get theme",
+                "description": "Returns a theme. This includes information about the theme name,\ndescription, and icon.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: None",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesThemeResourceGetThemeGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "themeKey",
+                        "in": "path",
+                        "description": "The key of the theme to be returned."
+                    }
+                ]
+            }
+        },
+        "\/space": {
+            "get": {
+                "summary": "Get spaces",
+                "description": "Returns all spaces. The returned spaces are ordered alphabetically in\nascending order by space key.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**:\nPermission to access the Confluence site ('Can use' global permission).\nNote, the returned list will only contain spaces that the current user\nhas permission to view.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesSpaceResourceGetSpacesGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "spaceKey",
+                        "in": "query",
+                        "description": "The key of the space to be queried for its content."
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "description": "The type of content to return."
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "Filter the results to a set of content based on their status. If set to `any`, \ncontent with any status is returned. Note, the `historical` status is currently \nnot supported."
+                    },
+                    {
+                        "name": "label",
+                        "in": "query",
+                        "description": "Filter the results to spaces based on their label."
+                    },
+                    {
+                        "name": "favourite",
+                        "in": "query",
+                        "description": "Filter the results to the favourite spaces of the user specified by\n`favouriteUserKey`. Note, 'favourite' spaces are also\nknown as 'saved for later' spaces."
+                    },
+                    {
+                        "name": "favouriteUserKey",
+                        "in": "query",
+                        "description": "The userKey of the user, whose favourite spaces are used to filter\nthe results when using the `favourite` parameter.\n\nLeave blank for the current user. Use [Get user](#api-user-get) to \nget the userKey for a user."
+                    },
+                    {
+                        "name": "expand",
+                        "in": "query",
+                        "description": "A multi-value parameter indicating which properties of the content to expand.\nBy default, the following objects are expanded: `space`, `history`, `version`.\n\n- `childTypes.all` returns whether the content has attachments, comments, or child pages. \nUse this if you only need to check whether the content has children of a particular type.\n- `childTypes.attachment` returns whether the content has attachments.\n- `childTypes.comment` returns whether the content has comments.\n- `childTypes.page` retur"
+                    },
+                    {
+                        "name": "start",
+                        "in": "query",
+                        "description": "The starting index of the returned records."
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "The maximum number of records to return per page. \nNote, this may be restricted by fixed system limits."
+                    }
+                ]
+            },
+            "post": {
+                "summary": "Create space",
+                "description": "Creates a new space. Note, currently you cannot set space labels when\ncreating a space.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**:\n'Create Space(s)' global permission.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesSpaceResourceCreateSpacePost",
+                "deprecated": 0,
+                "parameters": []
+            }
+        },
+        "\/space\/_private": {
+            "post": {
+                "summary": "Create private space",
+                "description": "Creates a new space that is only visible to the creator. This method is\nthe same as the [Create space](#api-space-post) method with permissions\nset to the current user only. Note, currently you cannot set space\nlabels when creating a space.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**:\n'Create Space(s)' global permission.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesSpaceResourceCreatePrivateSpacePost",
+                "deprecated": 0,
+                "parameters": []
+            }
+        },
+        "\/space\/{spaceKey}": {
+            "get": {
+                "summary": "Get space",
+                "description": "Returns a space. This includes information like the name, description,\nand permissions, but not the content in the space.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**:\n'View' permission for the space.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesSpaceResourceGetSpaceGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "spaceKey",
+                        "in": "path",
+                        "description": "The key of the space to be returned."
+                    },
+                    {
+                        "name": "expand",
+                        "in": "query",
+                        "description": "A multi-value parameter indicating which properties of the content to expand.\nBy default, the following objects are expanded: `space`, `history`, `version`.\n\n- `childTypes.all` returns whether the content has attachments, comments, or child pages. \nUse this if you only need to check whether the content has children of a particular type.\n- `childTypes.attachment` returns whether the content has attachments.\n- `childTypes.comment` returns whether the content has comments.\n- `childTypes.page` retur"
+                    }
+                ]
+            },
+            "put": {
+                "summary": "Update space",
+                "description": "Updates the name, description, or homepage of a space.\n\n-   For security reasons, permissions cannot be updated via the API and\nmust be changed via the user interface instead.\n-   Currently you cannot set space labels when updating a space.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**:\n'Admin' permission for the space.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesSpaceResourceUpdateSpacePut",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "spaceKey",
+                        "in": "path",
+                        "description": "The key of the space to be returned."
+                    }
+                ]
+            },
+            "delete": {
+                "summary": "Delete space",
+                "description": "Deletes a space. Note, the space will be deleted in a long running task.\nTherefore, the space may not be deleted yet when this method has\nreturned. Clients should poll the status link that is returned in the\nresponse until the task completes.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**:\n'Admin' permission for the space.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesSpaceResourceDeleteSpaceDelete",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "spaceKey",
+                        "in": "path",
+                        "description": "The key of the space to be returned."
+                    }
+                ]
+            }
+        },
+        "\/space\/{spaceKey}\/content": {
+            "get": {
+                "summary": "Get content for space",
+                "description": "Returns all content in a space. The returned content is grouped by type\n(pages then blogposts), then ordered by content ID in ascending order.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**:\n'View' permission for the space. Note, the returned list will only\ncontain content that the current user has permission to view.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesSpaceResourceGetContentForSpaceGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "spaceKey",
+                        "in": "path",
+                        "description": "The key of the space to be returned."
+                    },
+                    {
+                        "name": "depth",
+                        "in": "query",
+                        "description": "Currently, this parameter is not used. \nComments are returned at the root level only."
+                    },
+                    {
+                        "name": "expand",
+                        "in": "query",
+                        "description": "A multi-value parameter indicating which properties of the content to expand.\nBy default, the following objects are expanded: `space`, `history`, `version`.\n\n- `childTypes.all` returns whether the content has attachments, comments, or child pages. \nUse this if you only need to check whether the content has children of a particular type.\n- `childTypes.attachment` returns whether the content has attachments.\n- `childTypes.comment` returns whether the content has comments.\n- `childTypes.page` retur"
+                    },
+                    {
+                        "name": "start",
+                        "in": "query",
+                        "description": "The starting index of the returned records."
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "The maximum number of records to return per page. \nNote, this may be restricted by fixed system limits."
+                    }
+                ]
+            }
+        },
+        "\/space\/{spaceKey}\/content\/{type}": {
+            "get": {
+                "summary": "Get content by type for space",
+                "description": "Returns all content of a given type, in a space. The returned content is\nordered by content ID in ascending order.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**:\n'View' permission for the space. Note, the returned list will only\ncontain content that the current user has permission to view.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesSpaceResourceGetContentByTypeForSpaceGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "spaceKey",
+                        "in": "path",
+                        "description": "The key of the space to be returned."
+                    },
+                    {
+                        "name": "type",
+                        "in": "path",
+                        "description": "The type of children to return."
+                    },
+                    {
+                        "name": "depth",
+                        "in": "query",
+                        "description": "Currently, this parameter is not used. \nComments are returned at the root level only."
+                    },
+                    {
+                        "name": "expand",
+                        "in": "query",
+                        "description": "A multi-value parameter indicating which properties of the content to expand.\nBy default, the following objects are expanded: `space`, `history`, `version`.\n\n- `childTypes.all` returns whether the content has attachments, comments, or child pages. \nUse this if you only need to check whether the content has children of a particular type.\n- `childTypes.attachment` returns whether the content has attachments.\n- `childTypes.comment` returns whether the content has comments.\n- `childTypes.page` retur"
+                    },
+                    {
+                        "name": "start",
+                        "in": "query",
+                        "description": "The starting index of the returned records."
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "The maximum number of records to return per page. \nNote, this may be restricted by fixed system limits."
+                    }
+                ]
+            }
+        },
+        "\/space\/{spaceKey}\/property": {
+            "get": {
+                "summary": "Get space properties",
+                "description": "Returns all properties for the given space. Space properties are a key-value storage associated with a space.\n\n**[Permissions required](https:\/\/confluence.atlassian.com\/x\/_AozKw)**: \u2018View\u2019 permission for the space.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesSpacePropertyResourceGetSpacePropertiesGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "spaceKey",
+                        "in": "path",
+                        "description": "The key of the space to be returned."
+                    },
+                    {
+                        "name": "expand",
+                        "in": "query",
+                        "description": "A multi-value parameter indicating which properties of the content to expand.\nBy default, the following objects are expanded: `space`, `history`, `version`.\n\n- `childTypes.all` returns whether the content has attachments, comments, or child pages. \nUse this if you only need to check whether the content has children of a particular type.\n- `childTypes.attachment` returns whether the content has attachments.\n- `childTypes.comment` returns whether the content has comments.\n- `childTypes.page` retur"
+                    },
+                    {
+                        "name": "start",
+                        "in": "query",
+                        "description": "The starting index of the returned records."
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "The maximum number of records to return per page. \nNote, this may be restricted by fixed system limits."
+                    }
+                ]
+            },
+            "post": {
+                "summary": "Create space property",
+                "description": "Creates a new space property.\n\n**[Permissions required](https:\/\/confluence.atlassian.com\/x\/_AozKw)**:\n\u2018Admin\u2019 permission for the space.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesSpacePropertyResourceCreateSpacePropertyPost",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "spaceKey",
+                        "in": "path",
+                        "description": "The key of the space to be returned."
+                    }
+                ]
+            }
+        },
+        "\/space\/{spaceKey}\/property\/{key}": {
+            "get": {
+                "summary": "Get space property",
+                "description": "Returns a space property.\n\n**[Permissions required](https:\/\/confluence.atlassian.com\/x\/_AozKw)**: \u2018View\u2019 permission for the space.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesSpacePropertyResourceGetSpacePropertyGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "spaceKey",
+                        "in": "path",
+                        "description": "The key of the space to be returned."
+                    },
+                    {
+                        "name": "key",
+                        "in": "path",
+                        "description": "The key of the content property."
+                    },
+                    {
+                        "name": "expand",
+                        "in": "query",
+                        "description": "A multi-value parameter indicating which properties of the content to expand.\nBy default, the following objects are expanded: `space`, `history`, `version`.\n\n- `childTypes.all` returns whether the content has attachments, comments, or child pages. \nUse this if you only need to check whether the content has children of a particular type.\n- `childTypes.attachment` returns whether the content has attachments.\n- `childTypes.comment` returns whether the content has comments.\n- `childTypes.page` retur"
+                    }
+                ]
+            },
+            "post": {
+                "summary": "Create space property for key",
+                "description": "Creates a new space property. This is the same as `POST\n\/space\/{spaceKey}\/property` but the key for the property is passed as a\npath parameter, rather than in the request body.\n\n**[Permissions required](https:\/\/confluence.atlassian.com\/x\/_AozKw)**:\n\u2018Admin\u2019 permission for the space.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesSpacePropertyResourceCreateSpacePropertyForKeyP",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "spaceKey",
+                        "in": "path",
+                        "description": "The key of the space to be returned."
+                    },
+                    {
+                        "name": "key",
+                        "in": "path",
+                        "description": "The key of the content property."
+                    }
+                ]
+            },
+            "put": {
+                "summary": "Update space property",
+                "description": "Updates a space property. Note, you cannot update the key of a space\nproperty, only the value.\n\n**[Permissions required](https:\/\/confluence.atlassian.com\/x\/_AozKw)**:\n\u2018Admin\u2019 permission for the space.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesSpacePropertyResourceUpdateSpacePropertyPut",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "spaceKey",
+                        "in": "path",
+                        "description": "The key of the space to be returned."
+                    },
+                    {
+                        "name": "key",
+                        "in": "path",
+                        "description": "The key of the content property."
+                    }
+                ]
+            },
+            "delete": {
+                "summary": "Delete space property",
+                "description": "Deletes a space property.\n\n**[Permissions required](https:\/\/confluence.atlassian.com\/x\/_AozKw)**:\n\u2018Admin\u2019 permission for the space.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesSpacePropertyResourceDeleteSpacePropertyDelete",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "spaceKey",
+                        "in": "path",
+                        "description": "The key of the space to be returned."
+                    },
+                    {
+                        "name": "key",
+                        "in": "path",
+                        "description": "The key of the content property."
+                    }
+                ]
+            }
+        },
+        "\/space\/{spaceKey}\/settings": {
+            "get": {
+                "summary": "Get space settings",
+                "description": "Returns the settings of a space. Currently only the\n`routeOverrideEnabled` setting can be returned.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**:\n'View' permission for the space.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesSpaceResourceGetSpaceSettingsGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "spaceKey",
+                        "in": "path",
+                        "description": "The key of the space to be returned."
+                    }
+                ]
+            },
+            "put": {
+                "summary": "Update space settings",
+                "description": "Updates the settings for a space. Currently only the\n`routeOverrideEnabled` setting can be updated.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**:\n'Admin' permission for the space.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesSpaceResourceUpdateSpaceSettingsPut",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "spaceKey",
+                        "in": "path",
+                        "description": "The key of the space to be returned."
+                    }
+                ]
+            }
+        },
+        "\/space\/{spaceKey}\/theme": {
+            "get": {
+                "summary": "Get space theme",
+                "description": "Returns the theme selected for a space, if one is set. If no space \ntheme is set, this means that the space is inheriting the global look \nand feel settings.\n\n**[Permissions required](https:\/\/confluence.atlassian.com\/x\/_AozKw)**: \u2018View\u2019 permission for the space.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesSpaceThemeResourceGetSpaceThemeGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "spaceKey",
+                        "in": "path",
+                        "description": "The key of the space to be returned."
+                    }
+                ]
+            },
+            "put": {
+                "summary": "Set space theme",
+                "description": "Sets the theme for a space. Note, if you want to reset the space theme to \nthe default Confluence theme, use the 'Reset space theme' method instead \nof this method.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**:\n'Admin' permission for the space.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesSpaceThemeResourceSetSpaceThemePut",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "spaceKey",
+                        "in": "path",
+                        "description": "The key of the space to be returned."
+                    }
+                ]
+            },
+            "delete": {
+                "summary": "Reset space theme",
+                "description": "Resets the space theme. This means that the space will inherit the \nglobal look and feel settings\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**:\n'Admin' permission for the space.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesSpaceThemeResourceResetSpaceThemeDelete",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "spaceKey",
+                        "in": "path",
+                        "description": "The key of the space to be returned."
+                    }
+                ]
+            }
+        },
+        "\/template": {
+            "post": {
+                "summary": "Create content template",
+                "description": "Creates a new content template. Note, blueprint templates cannot be created via the REST API.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: \n'Admin' permission for the space to create a space template or 'Confluence Administrator' \nglobal permission to create a global template.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesTemplateResourceCreateContentTemplatePost",
+                "deprecated": 0,
+                "parameters": []
+            },
+            "put": {
+                "summary": "Update content template",
+                "description": "Updates a content template. Note, blueprint templates cannot be updated\nvia the REST API.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: \n'Admin' permission for the space to create a space template or 'Confluence Administrator' \nglobal permission to create a global template.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesTemplateResourceUpdateContentTemplatePut",
+                "deprecated": 0,
+                "parameters": []
+            }
+        },
+        "\/template\/blueprint": {
+            "get": {
+                "summary": "Get blueprint templates",
+                "description": "Returns all templates provided by blueprints. Use this method to retrieve \nall global blueprint templates or all blueprint templates in a space.\n\nNote, all global blueprints are inherited by each space. Space blueprints \ncan be customised without affecting the global blueprints.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: \nPermission to access the Confluence site ('Can use' global permission).",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesTemplateResourceGetBlueprintTemplatesGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "spaceKey",
+                        "in": "query",
+                        "description": "The key of the space to be queried for its content."
+                    },
+                    {
+                        "name": "start",
+                        "in": "query",
+                        "description": "The starting index of the returned records."
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "The maximum number of records to return per page. \nNote, this may be restricted by fixed system limits."
+                    },
+                    {
+                        "name": "expand",
+                        "in": "query",
+                        "description": "A multi-value parameter indicating which properties of the content to expand.\nBy default, the following objects are expanded: `space`, `history`, `version`.\n\n- `childTypes.all` returns whether the content has attachments, comments, or child pages. \nUse this if you only need to check whether the content has children of a particular type.\n- `childTypes.attachment` returns whether the content has attachments.\n- `childTypes.comment` returns whether the content has comments.\n- `childTypes.page` retur"
+                    }
+                ]
+            }
+        },
+        "\/template\/page": {
+            "get": {
+                "summary": "Get content templates",
+                "description": "Returns all content templates. Use this method to retrieve all global\ncontent templates or all content templates in a space.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: \n'Admin' permission for the space to view space templates and 'Confluence \nAdministrator' global permission to view global templates.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesTemplateResourceGetContentTemplatesGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "spaceKey",
+                        "in": "query",
+                        "description": "The key of the space to be queried for its content."
+                    },
+                    {
+                        "name": "start",
+                        "in": "query",
+                        "description": "The starting index of the returned records."
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "The maximum number of records to return per page. \nNote, this may be restricted by fixed system limits."
+                    },
+                    {
+                        "name": "expand",
+                        "in": "query",
+                        "description": "A multi-value parameter indicating which properties of the content to expand.\nBy default, the following objects are expanded: `space`, `history`, `version`.\n\n- `childTypes.all` returns whether the content has attachments, comments, or child pages. \nUse this if you only need to check whether the content has children of a particular type.\n- `childTypes.attachment` returns whether the content has attachments.\n- `childTypes.comment` returns whether the content has comments.\n- `childTypes.page` retur"
+                    }
+                ]
+            }
+        },
+        "\/template\/{contentTemplateId}": {
+            "get": {
+                "summary": "Get content template",
+                "description": "Returns a content template. This includes information about template, \nlike the name, the space or blueprint that the template is in, the body \nof the template, and more.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: \n'Admin' permission for the space to view space templates and 'Confluence \nAdministrator' global permission to view global templates.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesTemplateResourceGetContentTemplateGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "contentTemplateId",
+                        "in": "path",
+                        "description": "The ID of the content template to be returned."
+                    }
+                ]
+            },
+            "delete": {
+                "summary": "Remove template",
+                "description": "Deletes a template. This results in different actions depending on the \ntype of template:\n\n- If the template is a content template, it is deleted.\n- If the template is a modified space-level blueprint template, it reverts \nto the template inherited from the global-level blueprint template.\n- If the template is a modified global-level blueprint template, it reverts \nto the default global-level blueprint template.\n\n Note, unmodified blueprint templates cannot be deleted.",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesTemplateResourceRemoveTemplateDelete",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "contentTemplateId",
+                        "in": "path",
+                        "description": "The ID of the content template to be returned."
+                    }
+                ]
+            }
+        },
+        "\/user": {
+            "get": {
+                "summary": "Get user",
+                "description": "Returns a user. This includes information about the user, like the\ndisplay name, userKey, account ID, profile picture, and more.\n\nThe `username`, `key`, or `accountId` parameter must be specified, in \norder to identify the user.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: \nPermission to access the Confluence site ('Can use' global permission).",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesUserResourceGetUserGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "key",
+                        "in": "query",
+                        "description": "The key of the user to be queried for whether the content \nrestriction applies to it."
+                    },
+                    {
+                        "name": "userName",
+                        "in": "query",
+                        "description": "The username of the user to be queried for whether the content \nrestriction applies to it."
+                    },
+                    {
+                        "name": "accountId",
+                        "in": "query",
+                        "description": "The account ID of the user to be queried for whether the content \nrestriction applies to it."
+                    },
+                    {
+                        "name": "expand",
+                        "in": "query",
+                        "description": "A multi-value parameter indicating which properties of the content to expand.\nBy default, the following objects are expanded: `space`, `history`, `version`.\n\n- `childTypes.all` returns whether the content has attachments, comments, or child pages. \nUse this if you only need to check whether the content has children of a particular type.\n- `childTypes.attachment` returns whether the content has attachments.\n- `childTypes.comment` returns whether the content has comments.\n- `childTypes.page` retur"
+                    }
+                ]
+            }
+        },
+        "\/user\/anonymous": {
+            "get": {
+                "summary": "Get anonymous user",
+                "description": "Returns information about how anonymous users are represented, like the\nprofile picture and display name.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: \nPermission to access the Confluence site ('Can use' global permission).",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesUserResourceGetAnonymousUserGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "expand",
+                        "in": "query",
+                        "description": "A multi-value parameter indicating which properties of the content to expand.\nBy default, the following objects are expanded: `space`, `history`, `version`.\n\n- `childTypes.all` returns whether the content has attachments, comments, or child pages. \nUse this if you only need to check whether the content has children of a particular type.\n- `childTypes.attachment` returns whether the content has attachments.\n- `childTypes.comment` returns whether the content has comments.\n- `childTypes.page` retur"
+                    }
+                ]
+            }
+        },
+        "\/user\/current": {
+            "get": {
+                "summary": "Get current user",
+                "description": "Returns the currently logged-in user. This includes information about\nthe user, like the display name, userKey, account ID, profile picture,\nand more.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: \nPermission to access the Confluence site ('Can use' global permission).",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesUserResourceGetCurrentUserGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "expand",
+                        "in": "query",
+                        "description": "A multi-value parameter indicating which properties of the content to expand.\nBy default, the following objects are expanded: `space`, `history`, `version`.\n\n- `childTypes.all` returns whether the content has attachments, comments, or child pages. \nUse this if you only need to check whether the content has children of a particular type.\n- `childTypes.attachment` returns whether the content has attachments.\n- `childTypes.comment` returns whether the content has comments.\n- `childTypes.page` retur"
+                    }
+                ]
+            }
+        },
+        "\/user\/memberof": {
+            "get": {
+                "summary": "Get group memberships for user",
+                "description": "Returns the groups that a user is a member of.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: \nPermission to access the Confluence site ('Can use' global permission).",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesUserResourceGetGroupMembershipsForUserGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "key",
+                        "in": "query",
+                        "description": "The key of the user to be queried for whether the content \nrestriction applies to it."
+                    },
+                    {
+                        "name": "userName",
+                        "in": "query",
+                        "description": "The username of the user to be queried for whether the content \nrestriction applies to it."
+                    },
+                    {
+                        "name": "accountId",
+                        "in": "query",
+                        "description": "The account ID of the user to be queried for whether the content \nrestriction applies to it."
+                    },
+                    {
+                        "name": "start",
+                        "in": "query",
+                        "description": "The starting index of the returned records."
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "The maximum number of records to return per page. \nNote, this may be restricted by fixed system limits."
+                    }
+                ]
+            }
+        },
+        "\/user\/watch\/content\/{contentId}": {
+            "get": {
+                "summary": "Get content watch status",
+                "description": "Returns whether a user is watching a piece of content. Choose the user by \ndoing one of the following:\n\n- Specify a user via a query parameter: Use the `username`, `key`, or `accountId` \nto identify the user. The user making the request must be a Confluence administrator.\n- Do not specify a user: The currently logged-in user will be used.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: \n'Confluence Administrator' global permission if specifying a user, otherwise \npermissi",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesUserWatchResourceGetContentWatchStatusGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "contentId",
+                        "in": "path",
+                        "description": "The ID of the content to be queried for whether the specified user is \nwatching it."
+                    },
+                    {
+                        "name": "key",
+                        "in": "query",
+                        "description": "The key of the user to be queried for whether the content \nrestriction applies to it."
+                    },
+                    {
+                        "name": "userName",
+                        "in": "query",
+                        "description": "The username of the user to be queried for whether the content \nrestriction applies to it."
+                    },
+                    {
+                        "name": "accountId",
+                        "in": "query",
+                        "description": "The account ID of the user to be queried for whether the content \nrestriction applies to it."
+                    }
+                ]
+            },
+            "post": {
+                "summary": "Add content watcher",
+                "description": "Adds a user as a watcher to a piece of content. Choose the user by doing \none of the following:\n\n- Specify a user via a query parameter: Use the `username`, `key`, or `accountId` \nto identify the user. The user making the request must be a Confluence administrator.\n- Do not specify a user: The currently logged-in user will be used.\n\nNote, you must add the `X-Atlassian-Token: no-check` header when making a \nrequest, as this operation has XSRF protection.\n\n**[Permissions](https:\/\/confluence.atlass",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesUserWatchResourceAddContentWatcherPost",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "contentId",
+                        "in": "path",
+                        "description": "The ID of the content to be queried for whether the specified user is \nwatching it."
+                    },
+                    {
+                        "name": "key",
+                        "in": "query",
+                        "description": "The key of the user to be queried for whether the content \nrestriction applies to it."
+                    },
+                    {
+                        "name": "userName",
+                        "in": "query",
+                        "description": "The username of the user to be queried for whether the content \nrestriction applies to it."
+                    },
+                    {
+                        "name": "accountId",
+                        "in": "query",
+                        "description": "The account ID of the user to be queried for whether the content \nrestriction applies to it."
+                    }
+                ]
+            },
+            "delete": {
+                "summary": "Remove content watcher",
+                "description": "Removes a user as a watcher from a piece of content. Choose the user by \ndoing one of the following:\n\n- Specify a user via a query parameter: Use the `username`, `key`, or `accountId` \nto identify the user. The user making the request must be a Confluence administrator.\n- Do not specify a user: The currently logged-in user will be used.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: \n'Confluence Administrator' global permission if specifying a user, otherwise \npermission",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesUserWatchResourceRemoveContentWatcherDelete",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "contentId",
+                        "in": "path",
+                        "description": "The ID of the content to be queried for whether the specified user is \nwatching it."
+                    },
+                    {
+                        "name": "key",
+                        "in": "query",
+                        "description": "The key of the user to be queried for whether the content \nrestriction applies to it."
+                    },
+                    {
+                        "name": "userName",
+                        "in": "query",
+                        "description": "The username of the user to be queried for whether the content \nrestriction applies to it."
+                    },
+                    {
+                        "name": "accountId",
+                        "in": "query",
+                        "description": "The account ID of the user to be queried for whether the content \nrestriction applies to it."
+                    }
+                ]
+            }
+        },
+        "\/user\/watch\/label\/{labelName}": {
+            "get": {
+                "summary": "Get label watch status",
+                "description": "Returns whether a user is watching a label. Choose the user by doing one \nof the following:\n\n- Specify a user via a query parameter: Use the `username`, `key`, or `accountId` \nto identify the user. The user making the request must be a Confluence administrator.\n- Do not specify a user: The currently logged-in user will be used.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: \n'Confluence Administrator' global permission if specifying a user, otherwise \npermission to acces",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesUserWatchResourceIsWatchingLabelGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "labelName",
+                        "in": "path",
+                        "description": "The name of the label to be queried for whether the specified user is \nwatching it."
+                    },
+                    {
+                        "name": "key",
+                        "in": "query",
+                        "description": "The key of the user to be queried for whether the content \nrestriction applies to it."
+                    },
+                    {
+                        "name": "userName",
+                        "in": "query",
+                        "description": "The username of the user to be queried for whether the content \nrestriction applies to it."
+                    },
+                    {
+                        "name": "accountId",
+                        "in": "query",
+                        "description": "The account ID of the user to be queried for whether the content \nrestriction applies to it."
+                    }
+                ]
+            },
+            "post": {
+                "summary": "Add label watcher",
+                "description": "Adds a user as a watcher to a label. Choose the user by doing one of the \nfollowing:\n\n- Specify a user via a query parameter: Use the `username`, `key`, or `accountId` \nto identify the user. The user making the request must be a Confluence administrator.\n- Do not specify a user: The currently logged-in user will be used.\n\nNote, you must add the `X-Atlassian-Token: no-check` header when making a \nrequest, as this operation has XSRF protection.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesUserWatchResourceAddLabelWatcherPost",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "labelName",
+                        "in": "path",
+                        "description": "The name of the label to be queried for whether the specified user is \nwatching it."
+                    },
+                    {
+                        "name": "key",
+                        "in": "query",
+                        "description": "The key of the user to be queried for whether the content \nrestriction applies to it."
+                    },
+                    {
+                        "name": "userName",
+                        "in": "query",
+                        "description": "The username of the user to be queried for whether the content \nrestriction applies to it."
+                    },
+                    {
+                        "name": "accountId",
+                        "in": "query",
+                        "description": "The account ID of the user to be queried for whether the content \nrestriction applies to it."
+                    }
+                ]
+            },
+            "delete": {
+                "summary": "Remove label watcher",
+                "description": "Removes a user as a watcher from a label. Choose the user by doing one of \nthe following:\n\n- Specify a user via a query parameter: Use the `username`, `key`, or `accountId` \nto identify the user. The user making the request must be a Confluence administrator.\n- Do not specify a user: The currently logged-in user will be used.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: \n'Confluence Administrator' global permission if specifying a user, otherwise \npermission to access ",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesUserWatchResourceRemoveLabelWatcherDelete",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "labelName",
+                        "in": "path",
+                        "description": "The name of the label to be queried for whether the specified user is \nwatching it."
+                    },
+                    {
+                        "name": "key",
+                        "in": "query",
+                        "description": "The key of the user to be queried for whether the content \nrestriction applies to it."
+                    },
+                    {
+                        "name": "userName",
+                        "in": "query",
+                        "description": "The username of the user to be queried for whether the content \nrestriction applies to it."
+                    },
+                    {
+                        "name": "accountId",
+                        "in": "query",
+                        "description": "The account ID of the user to be queried for whether the content \nrestriction applies to it."
+                    }
+                ]
+            }
+        },
+        "\/user\/watch\/space\/{spaceKey}": {
+            "get": {
+                "summary": "Get space watch status",
+                "description": "Returns whether a user is watching a space. Choose the user by \ndoing one of the following:\n\n- Specify a user via a query parameter: Use the `username`, `key`, or `accountId` \nto identify the user. The user making the request must be a Confluence administrator.\n- Do not specify a user: The currently logged-in user will be used.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: \n'Confluence Administrator' global permission if specifying a user, otherwise \npermission to acces",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesUserWatchResourceIsWatchingSpaceGet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "spaceKey",
+                        "in": "path",
+                        "description": "The key of the space to be returned."
+                    },
+                    {
+                        "name": "key",
+                        "in": "query",
+                        "description": "The key of the user to be queried for whether the content \nrestriction applies to it."
+                    },
+                    {
+                        "name": "userName",
+                        "in": "query",
+                        "description": "The username of the user to be queried for whether the content \nrestriction applies to it."
+                    },
+                    {
+                        "name": "accountId",
+                        "in": "query",
+                        "description": "The account ID of the user to be queried for whether the content \nrestriction applies to it."
+                    }
+                ]
+            },
+            "post": {
+                "summary": "Add space watcher",
+                "description": "Adds a user as a watcher to a space. Choose the user by doing one of the \nfollowing:\n\n- Specify a user via a query parameter: Use the `username`, `key`, or `accountId` \nto identify the user. The user making the request must be a Confluence administrator.\n- Do not specify a user: The currently logged-in user will be used.\n\nNote, you must add the `X-Atlassian-Token: no-check` header when making a \nrequest, as this operation has XSRF protection.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesUserWatchResourceAddSpaceWatcherPost",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "spaceKey",
+                        "in": "path",
+                        "description": "The key of the space to be returned."
+                    },
+                    {
+                        "name": "key",
+                        "in": "query",
+                        "description": "The key of the user to be queried for whether the content \nrestriction applies to it."
+                    },
+                    {
+                        "name": "userName",
+                        "in": "query",
+                        "description": "The username of the user to be queried for whether the content \nrestriction applies to it."
+                    },
+                    {
+                        "name": "accountId",
+                        "in": "query",
+                        "description": "The account ID of the user to be queried for whether the content \nrestriction applies to it."
+                    }
+                ]
+            },
+            "delete": {
+                "summary": "Remove space watch",
+                "description": "Removes a user as a watcher from a space. Choose the user by doing one of \nthe following:\n\n- Specify a user via a query parameter: Use the `username`, `key`, or `accountId` \nto identify the user. The user making the request must be a Confluence administrator.\n- Do not specify a user: The currently logged-in user will be used.\n\n**[Permissions](https:\/\/confluence.atlassian.com\/x\/_AozKw) required**: \n'Confluence Administrator' global permission if specifying a user, otherwise \npermission to access ",
+                "operationId": "ComAtlassianConfluencePluginsRestapiResourcesUserWatchResourceRemoveSpaceWatchDelete",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "spaceKey",
+                        "in": "path",
+                        "description": "The key of the space to be returned."
+                    },
+                    {
+                        "name": "key",
+                        "in": "query",
+                        "description": "The key of the user to be queried for whether the content \nrestriction applies to it."
+                    },
+                    {
+                        "name": "userName",
+                        "in": "query",
+                        "description": "The username of the user to be queried for whether the content \nrestriction applies to it."
+                    },
+                    {
+                        "name": "accountId",
+                        "in": "query",
+                        "description": "The account ID of the user to be queried for whether the content \nrestriction applies to it."
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "schemas": []
+    }
+}

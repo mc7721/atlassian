@@ -1,0 +1,1229 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "",
+        "title": "Stride API",
+        "description": "This service provides public API for the Stride.",
+        "termsOfService": ""
+    },
+    "servers": [
+        "https\/"
+    ],
+    "paths": {
+        "\/site\/": {
+            "get": {
+                "summary": "Get list of sites",
+                "description": "Authentication required, with scope participate:conversation",
+                "operationId": "GetAllHandler",
+                "deprecated": 0,
+                "parameters": []
+            }
+        },
+        "\/site\/{cloudId}\/conversation": {
+            "get": {
+                "summary": "Get a list of conversations",
+                "description": "The API returns the list of conversations the app has access to Authentication required, with scope participate:conversation",
+                "operationId": "ConversationGetAllHandler",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "cloudId",
+                        "in": "path",
+                        "description": "The id of the site (cloudId)"
+                    },
+                    {
+                        "name": "include",
+                        "in": "query",
+                        "description": "Include private conversations into response. Default to 'true'."
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "A maximum number of conversations to return per call. Valid length range: 1 - 75. Default value is 75."
+                    },
+                    {
+                        "name": "query",
+                        "in": "query",
+                        "description": "A string containing full or part of conversation's name. May be empty."
+                    },
+                    {
+                        "name": "cursor",
+                        "in": "query",
+                        "description": "The cursor is a string, that you can use to scroll through the data set to get more results."
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "description": "A sort order of the conversations lists. Supported values: asc or desc."
+                    },
+                    {
+                        "name": "exclude",
+                        "in": "query",
+                        "description": "Exclude direct messages from a response. Default to 'false'"
+                    }
+                ]
+            },
+            "post": {
+                "summary": "Create conversation",
+                "description": "Authentication required, with scope manage:conversation",
+                "operationId": "ConversationPostHandler",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "cloudId",
+                        "in": "path",
+                        "description": "The id of the site (cloudId)"
+                    }
+                ]
+            }
+        },
+        "\/site\/{cloudId}\/conversation\/user\/{userId}": {
+            "get": {
+                "summary": "Get a direct conversation of a user",
+                "description": "Get a direct conversation of a user.",
+                "operationId": "ConversationUserGetHandler",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "cloudId",
+                        "in": "path",
+                        "description": "The id of the site (cloudId)"
+                    },
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "description": "The user Id"
+                    }
+                ]
+            }
+        },
+        "\/site\/{cloudId}\/conversation\/user\/{userId}\/message": {
+            "post": {
+                "summary": "Send message to a user",
+                "description": "Send message to a user.",
+                "operationId": "UserMessagePostHandler",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "cloudId",
+                        "in": "path",
+                        "description": "The id of the site (cloudId)"
+                    },
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "description": "The user Id"
+                    }
+                ]
+            }
+        },
+        "\/site\/{cloudId}\/conversation\/user\/{userId}\/message\/{messageId}": {
+            "put": {
+                "summary": "Edit a message in a direct conversation",
+                "description": "Authentication required, with scope participate:conversation",
+                "operationId": "UserMessagePutHandler",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "cloudId",
+                        "in": "path",
+                        "description": "The id of the site (cloudId)"
+                    },
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "description": "The user Id"
+                    },
+                    {
+                        "name": "messageId",
+                        "in": "path",
+                        "description": "The ID of the message."
+                    }
+                ]
+            },
+            "delete": {
+                "summary": "Delete a message in a direct conversation",
+                "description": "Authentication required, with scope participate:conversation",
+                "operationId": "UserMessageDeleteHandler",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "cloudId",
+                        "in": "path",
+                        "description": "The id of the site (cloudId)"
+                    },
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "description": "The user Id"
+                    },
+                    {
+                        "name": "messageId",
+                        "in": "path",
+                        "description": "The ID of the message."
+                    }
+                ]
+            }
+        },
+        "\/site\/{cloudId}\/conversation\/{conversationId}": {
+            "get": {
+                "summary": "Get conversation details",
+                "description": "Authentication required, with scope participate:conversation",
+                "operationId": "ConversationGetHandler",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "cloudId",
+                        "in": "path",
+                        "description": "The id of the site (cloudId)"
+                    },
+                    {
+                        "name": "conversationId",
+                        "in": "path",
+                        "description": "The conversation id"
+                    }
+                ]
+            },
+            "patch": {
+                "summary": "Update conversation",
+                "description": "Authentication required, with scope manage:conversation",
+                "operationId": "ConversationPatchHandler",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "cloudId",
+                        "in": "path",
+                        "description": "The id of the site (cloudId)"
+                    },
+                    {
+                        "name": "conversationId",
+                        "in": "path",
+                        "description": "The conversation id"
+                    }
+                ]
+            }
+        },
+        "\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:actionTarget": {
+            "get": {
+                "summary": "Get a list of chat:actionTarget modules",
+                "description": "Authentication required, with scope participate:conversation",
+                "operationId": "AppModuleChatActionTargetGetAllHandler",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "cloudId",
+                        "in": "path",
+                        "description": "The id of the site (cloudId)"
+                    },
+                    {
+                        "name": "conversationId",
+                        "in": "path",
+                        "description": "The conversation id"
+                    },
+                    {
+                        "name": "start",
+                        "in": "query",
+                        "description": "Offset for the query."
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "A maximum number of conversations to return per call. Valid length range: 1 - 75. Default value is 75."
+                    }
+                ]
+            }
+        },
+        "\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:actionTarget\/{key}": {
+            "put": {
+                "summary": "Create or update a chat:actionTarget module",
+                "description": "Authentication required, with scope participate:conversation",
+                "operationId": "AppModuleChatActionTargetPutHandler",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "cloudId",
+                        "in": "path",
+                        "description": "The id of the site (cloudId)"
+                    },
+                    {
+                        "name": "conversationId",
+                        "in": "path",
+                        "description": "The conversation id"
+                    },
+                    {
+                        "name": "key",
+                        "in": "path",
+                        "description": "The key to identify the resource"
+                    }
+                ]
+            },
+            "delete": {
+                "summary": "Delete a chat:actionTarget module",
+                "description": "Authentication required, with scope participate:conversation",
+                "operationId": "AppModuleChatActionTargetDeleteHandler",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "cloudId",
+                        "in": "path",
+                        "description": "The id of the site (cloudId)"
+                    },
+                    {
+                        "name": "conversationId",
+                        "in": "path",
+                        "description": "The conversation id"
+                    },
+                    {
+                        "name": "key",
+                        "in": "path",
+                        "description": "The key to identify the resource"
+                    }
+                ]
+            }
+        },
+        "\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:bot": {
+            "get": {
+                "summary": "Get a list of chat:bot modules",
+                "description": "Authentication required, with scope participate:conversation",
+                "operationId": "AppWebhookChatBotGetAllHandler",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "cloudId",
+                        "in": "path",
+                        "description": "The id of the site (cloudId)"
+                    },
+                    {
+                        "name": "conversationId",
+                        "in": "path",
+                        "description": "The conversation id"
+                    },
+                    {
+                        "name": "start",
+                        "in": "query",
+                        "description": "Offset for the query."
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "A maximum number of conversations to return per call. Valid length range: 1 - 75. Default value is 75."
+                    }
+                ]
+            }
+        },
+        "\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:bot\/{key}": {
+            "put": {
+                "summary": "Create or update a chat:bot module",
+                "description": "Authentication required, with scope participate:conversation",
+                "operationId": "AppWebhookChatBotPutHandler",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "cloudId",
+                        "in": "path",
+                        "description": "The id of the site (cloudId)"
+                    },
+                    {
+                        "name": "conversationId",
+                        "in": "path",
+                        "description": "The conversation id"
+                    },
+                    {
+                        "name": "key",
+                        "in": "path",
+                        "description": "The key to identify the resource"
+                    }
+                ]
+            },
+            "delete": {
+                "summary": "Delete a chat:bot module",
+                "description": "Authentication required, with scope participate:conversation",
+                "operationId": "AppWebhookChatBotDeleteHandler",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "cloudId",
+                        "in": "path",
+                        "description": "The id of the site (cloudId)"
+                    },
+                    {
+                        "name": "conversationId",
+                        "in": "path",
+                        "description": "The conversation id"
+                    },
+                    {
+                        "name": "key",
+                        "in": "path",
+                        "description": "The key to identify the resource"
+                    }
+                ]
+            }
+        },
+        "\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:bot:messages": {
+            "get": {
+                "summary": "Get a list of chat:bot:messages modules",
+                "description": "Authentication required, with scope participate:conversation",
+                "operationId": "AppWebhookChatBotMessageGetAllHandler",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "cloudId",
+                        "in": "path",
+                        "description": "The id of the site (cloudId)"
+                    },
+                    {
+                        "name": "conversationId",
+                        "in": "path",
+                        "description": "The conversation id"
+                    },
+                    {
+                        "name": "start",
+                        "in": "query",
+                        "description": "Offset for the query."
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "A maximum number of conversations to return per call. Valid length range: 1 - 75. Default value is 75."
+                    }
+                ]
+            }
+        },
+        "\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:bot:messages\/{key}": {
+            "put": {
+                "summary": "Create or update a chat:bot:messages module",
+                "description": "Authentication required, with scope participate:conversation",
+                "operationId": "AppWebhookChatBotMessagePutHandler",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "cloudId",
+                        "in": "path",
+                        "description": "The id of the site (cloudId)"
+                    },
+                    {
+                        "name": "conversationId",
+                        "in": "path",
+                        "description": "The conversation id"
+                    },
+                    {
+                        "name": "key",
+                        "in": "path",
+                        "description": "The key to identify the resource"
+                    }
+                ]
+            },
+            "delete": {
+                "summary": "Delete a chat:bot:messages module",
+                "description": "Authentication required, with scope participate:conversation",
+                "operationId": "AppWebhookChatBotMessageDeleteHandler",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "cloudId",
+                        "in": "path",
+                        "description": "The id of the site (cloudId)"
+                    },
+                    {
+                        "name": "conversationId",
+                        "in": "path",
+                        "description": "The conversation id"
+                    },
+                    {
+                        "name": "key",
+                        "in": "path",
+                        "description": "The key to identify the resource"
+                    }
+                ]
+            }
+        },
+        "\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:configuration\/{key}\/state": {
+            "put": {
+                "summary": "Update the chat:configuration state",
+                "description": "Authentication required, with scope participate:conversation",
+                "operationId": "AppModuleChatConfigurationPutHandler",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "cloudId",
+                        "in": "path",
+                        "description": "The id of the site (cloudId)"
+                    },
+                    {
+                        "name": "conversationId",
+                        "in": "path",
+                        "description": "The conversation id"
+                    },
+                    {
+                        "name": "key",
+                        "in": "path",
+                        "description": "The key to identify the resource"
+                    }
+                ]
+            }
+        },
+        "\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:dialog": {
+            "get": {
+                "summary": "Get a list of chat:dialog modules",
+                "description": "Authentication required, with scope participate:conversation",
+                "operationId": "AppModuleChatDialogGetAllHandler",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "cloudId",
+                        "in": "path",
+                        "description": "The id of the site (cloudId)"
+                    },
+                    {
+                        "name": "conversationId",
+                        "in": "path",
+                        "description": "The conversation id"
+                    },
+                    {
+                        "name": "start",
+                        "in": "query",
+                        "description": "Offset for the query."
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "A maximum number of conversations to return per call. Valid length range: 1 - 75. Default value is 75."
+                    }
+                ]
+            }
+        },
+        "\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:dialog\/{key}": {
+            "put": {
+                "summary": "Create or update a chat:dialog module",
+                "description": "Authentication required, with scope participate:conversation",
+                "operationId": "AppModuleChatDialogPutHandler",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "cloudId",
+                        "in": "path",
+                        "description": "The id of the site (cloudId)"
+                    },
+                    {
+                        "name": "conversationId",
+                        "in": "path",
+                        "description": "The conversation id"
+                    },
+                    {
+                        "name": "key",
+                        "in": "path",
+                        "description": "The key to identify the resource"
+                    }
+                ]
+            },
+            "delete": {
+                "summary": "Delete a chat:dialog module",
+                "description": "Authentication required, with scope participate:conversation",
+                "operationId": "AppModuleChatDialogDeleteHandler",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "cloudId",
+                        "in": "path",
+                        "description": "The id of the site (cloudId)"
+                    },
+                    {
+                        "name": "conversationId",
+                        "in": "path",
+                        "description": "The conversation id"
+                    },
+                    {
+                        "name": "key",
+                        "in": "path",
+                        "description": "The key to identify the resource"
+                    }
+                ]
+            }
+        },
+        "\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:externalPage": {
+            "get": {
+                "summary": "Get a list of chat:externalPage modules",
+                "description": "Authentication required, with scope participate:conversation",
+                "operationId": "AppModuleChatExternalPageGetAllHandler",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "cloudId",
+                        "in": "path",
+                        "description": "The id of the site (cloudId)"
+                    },
+                    {
+                        "name": "conversationId",
+                        "in": "path",
+                        "description": "The conversation id"
+                    },
+                    {
+                        "name": "start",
+                        "in": "query",
+                        "description": "Offset for the query."
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "A maximum number of conversations to return per call. Valid length range: 1 - 75. Default value is 75."
+                    }
+                ]
+            }
+        },
+        "\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:externalPage\/{key}": {
+            "put": {
+                "summary": "Create or update a chat:externalPage module",
+                "description": "Authentication required, with scope participate:conversation",
+                "operationId": "AppModuleChatExternalPagePutHandler",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "cloudId",
+                        "in": "path",
+                        "description": "The id of the site (cloudId)"
+                    },
+                    {
+                        "name": "conversationId",
+                        "in": "path",
+                        "description": "The conversation id"
+                    },
+                    {
+                        "name": "key",
+                        "in": "path",
+                        "description": "The key to identify the resource"
+                    }
+                ]
+            },
+            "delete": {
+                "summary": "Delete a chat:externalPage module",
+                "description": "Authentication required, with scope participate:conversation",
+                "operationId": "AppModuleChatExternalPageDeleteHandler",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "cloudId",
+                        "in": "path",
+                        "description": "The id of the site (cloudId)"
+                    },
+                    {
+                        "name": "conversationId",
+                        "in": "path",
+                        "description": "The conversation id"
+                    },
+                    {
+                        "name": "key",
+                        "in": "path",
+                        "description": "The key to identify the resource"
+                    }
+                ]
+            }
+        },
+        "\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:glance": {
+            "get": {
+                "summary": "Get a list of chat:glance modules",
+                "description": "Authentication required, with scope participate:conversation",
+                "operationId": "AppModuleChatGlanceGetAllHandler",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "cloudId",
+                        "in": "path",
+                        "description": "The id of the site (cloudId)"
+                    },
+                    {
+                        "name": "conversationId",
+                        "in": "path",
+                        "description": "The conversation id"
+                    },
+                    {
+                        "name": "start",
+                        "in": "query",
+                        "description": "Offset for the query."
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "A maximum number of conversations to return per call. Valid length range: 1 - 75. Default value is 75."
+                    }
+                ]
+            }
+        },
+        "\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:glance\/{key}": {
+            "put": {
+                "summary": "Create or update a chat:glance module",
+                "description": "Authentication required, with scope participate:conversation",
+                "operationId": "AppModuleChatGlancePutHandler",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "cloudId",
+                        "in": "path",
+                        "description": "The id of the site (cloudId)"
+                    },
+                    {
+                        "name": "conversationId",
+                        "in": "path",
+                        "description": "The conversation id"
+                    },
+                    {
+                        "name": "key",
+                        "in": "path",
+                        "description": "The key to identify the resource"
+                    }
+                ]
+            },
+            "delete": {
+                "summary": "Delete a chat:glance module",
+                "description": "Authentication required, with scope participate:conversation",
+                "operationId": "AppModuleChatGlanceDeleteHandler",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "cloudId",
+                        "in": "path",
+                        "description": "The id of the site (cloudId)"
+                    },
+                    {
+                        "name": "conversationId",
+                        "in": "path",
+                        "description": "The conversation id"
+                    },
+                    {
+                        "name": "key",
+                        "in": "path",
+                        "description": "The key to identify the resource"
+                    }
+                ]
+            }
+        },
+        "\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:glance\/{key}\/state": {
+            "put": {
+                "summary": "Update the chat:glance state",
+                "description": "Authentication required, with scope participate:conversation",
+                "operationId": "AppModuleChatGlanceStatePutHandler",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "cloudId",
+                        "in": "path",
+                        "description": "The id of the site (cloudId)"
+                    },
+                    {
+                        "name": "conversationId",
+                        "in": "path",
+                        "description": "The conversation id"
+                    },
+                    {
+                        "name": "key",
+                        "in": "path",
+                        "description": "The key to identify the resource"
+                    }
+                ]
+            }
+        },
+        "\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:sidebar": {
+            "get": {
+                "summary": "Get a list of chat:sidebar modules",
+                "description": "Authentication required, with scope participate:conversation",
+                "operationId": "AppModuleChatSidebarGetAllHandler",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "cloudId",
+                        "in": "path",
+                        "description": "The id of the site (cloudId)"
+                    },
+                    {
+                        "name": "conversationId",
+                        "in": "path",
+                        "description": "The conversation id"
+                    },
+                    {
+                        "name": "start",
+                        "in": "query",
+                        "description": "Offset for the query."
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "A maximum number of conversations to return per call. Valid length range: 1 - 75. Default value is 75."
+                    }
+                ]
+            }
+        },
+        "\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:sidebar\/{key}": {
+            "put": {
+                "summary": "Create or update a chat:sidebar module",
+                "description": "Authentication required, with scope participate:conversation",
+                "operationId": "AppModuleChatSidebarPutHandler",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "cloudId",
+                        "in": "path",
+                        "description": "The id of the site (cloudId)"
+                    },
+                    {
+                        "name": "conversationId",
+                        "in": "path",
+                        "description": "The conversation id"
+                    },
+                    {
+                        "name": "key",
+                        "in": "path",
+                        "description": "The key to identify the resource"
+                    }
+                ]
+            },
+            "delete": {
+                "summary": "Delete a chat:sidebar module",
+                "description": "Authentication required, with scope participate:conversation",
+                "operationId": "AppModuleChatSidebarDeleteHandler",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "cloudId",
+                        "in": "path",
+                        "description": "The id of the site (cloudId)"
+                    },
+                    {
+                        "name": "conversationId",
+                        "in": "path",
+                        "description": "The conversation id"
+                    },
+                    {
+                        "name": "key",
+                        "in": "path",
+                        "description": "The key to identify the resource"
+                    }
+                ]
+            }
+        },
+        "\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:webhook": {
+            "get": {
+                "summary": "Get a list of chat:webhook modules",
+                "description": "Authentication required, with scope participate:conversation",
+                "operationId": "AppWebhookChatWebhookGetAllHandler",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "cloudId",
+                        "in": "path",
+                        "description": "The id of the site (cloudId)"
+                    },
+                    {
+                        "name": "conversationId",
+                        "in": "path",
+                        "description": "The conversation id"
+                    },
+                    {
+                        "name": "start",
+                        "in": "query",
+                        "description": "Offset for the query."
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "A maximum number of conversations to return per call. Valid length range: 1 - 75. Default value is 75."
+                    }
+                ]
+            }
+        },
+        "\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:webhook\/{key}": {
+            "put": {
+                "summary": "Create or update a chat:webhook module",
+                "description": "Authentication required, with scope participate:conversation",
+                "operationId": "AppWebhookChatWebhookPutHandler",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "cloudId",
+                        "in": "path",
+                        "description": "The id of the site (cloudId)"
+                    },
+                    {
+                        "name": "conversationId",
+                        "in": "path",
+                        "description": "The conversation id"
+                    },
+                    {
+                        "name": "key",
+                        "in": "path",
+                        "description": "The key to identify the resource"
+                    }
+                ]
+            },
+            "delete": {
+                "summary": "Delete a chat:webhook module",
+                "description": "Authentication required, with scope participate:conversation",
+                "operationId": "AppWebhookChatWebhookDeleteHandler",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "cloudId",
+                        "in": "path",
+                        "description": "The id of the site (cloudId)"
+                    },
+                    {
+                        "name": "conversationId",
+                        "in": "path",
+                        "description": "The conversation id"
+                    },
+                    {
+                        "name": "key",
+                        "in": "path",
+                        "description": "The key to identify the resource"
+                    }
+                ]
+            }
+        },
+        "\/site\/{cloudId}\/conversation\/{conversationId}\/archive": {
+            "put": {
+                "summary": "Archive conversation",
+                "description": "Authentication required, with scope manage:conversation",
+                "operationId": "ConversationArchivePutHandler",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "cloudId",
+                        "in": "path",
+                        "description": "The id of the site (cloudId)"
+                    },
+                    {
+                        "name": "conversationId",
+                        "in": "path",
+                        "description": "The conversation id"
+                    }
+                ]
+            }
+        },
+        "\/site\/{cloudId}\/conversation\/{conversationId}\/media": {
+            "post": {
+                "summary": "Upload a file",
+                "description": "Authentication required, with scope participate:conversation",
+                "operationId": "ConversationMediaPostHandler",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "cloudId",
+                        "in": "path",
+                        "description": "The id of the site (cloudId)"
+                    },
+                    {
+                        "name": "conversationId",
+                        "in": "path",
+                        "description": "The conversation id"
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "File name"
+                    }
+                ]
+            }
+        },
+        "\/site\/{cloudId}\/conversation\/{conversationId}\/media\/{mediaId}": {
+            "get": {
+                "summary": "Get a file",
+                "description": "Authentication required, with scope participate:conversation",
+                "operationId": "ConversationMediaGetHandler",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "cloudId",
+                        "in": "path",
+                        "description": "The id of the site (cloudId)"
+                    },
+                    {
+                        "name": "conversationId",
+                        "in": "path",
+                        "description": "The conversation id"
+                    },
+                    {
+                        "name": "mediaId",
+                        "in": "path",
+                        "description": "Media ID"
+                    }
+                ]
+            },
+            "delete": {
+                "summary": "Delete a file",
+                "description": "Authentication required, with scope participate:conversation",
+                "operationId": "ConversationMediaDeleteHandler",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "cloudId",
+                        "in": "path",
+                        "description": "The id of the site (cloudId)"
+                    },
+                    {
+                        "name": "conversationId",
+                        "in": "path",
+                        "description": "The conversation id"
+                    },
+                    {
+                        "name": "mediaId",
+                        "in": "path",
+                        "description": "Media ID"
+                    }
+                ]
+            }
+        },
+        "\/site\/{cloudId}\/conversation\/{conversationId}\/message": {
+            "get": {
+                "summary": "Get conversation history",
+                "description": "Authentication required, with scope participate:conversation This method returns messages after\/before a given messageIDs or\/and timestamps. If these parameters are omitted the method returns conversation\u2019s latest messages. Max number of messages returned is 75.",
+                "operationId": "ConversationMessagesGetHandler",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "beforeMessage",
+                        "in": "query",
+                        "description": "Returns at most 75 messages before a provided messageID"
+                    },
+                    {
+                        "name": "beforeTimestamp",
+                        "in": "query",
+                        "description": "Returns at most 75 messages before a provided RFC3339 timestamp (2006-01-02T15:04:05+07:00)"
+                    },
+                    {
+                        "name": "afterMessage",
+                        "in": "query",
+                        "description": "Returns at most 75 latest messages after a provided messageID"
+                    },
+                    {
+                        "name": "afterTimestamp",
+                        "in": "query",
+                        "description": "Returns at most 75 latest messages after a provided RFC3339 timestamp (2006-01-02T15:04:05+07:00)"
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "A maximum number of conversations to return per call. Valid length range: 1 - 75. Default value is 75."
+                    },
+                    {
+                        "name": "cloudId",
+                        "in": "path",
+                        "description": "The id of the site (cloudId)"
+                    },
+                    {
+                        "name": "conversationId",
+                        "in": "path",
+                        "description": "The conversation id"
+                    }
+                ]
+            },
+            "post": {
+                "summary": "Send a message to a conversation",
+                "description": "Send a message to a conversation.",
+                "operationId": "ConversationMessagePostHandler",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "cloudId",
+                        "in": "path",
+                        "description": "The id of the site (cloudId)"
+                    },
+                    {
+                        "name": "conversationId",
+                        "in": "path",
+                        "description": "The conversation id"
+                    }
+                ]
+            }
+        },
+        "\/site\/{cloudId}\/conversation\/{conversationId}\/message\/recent": {
+            "get": {
+                "summary": "Get latest messages for conversation",
+                "description": "Authentication required, with scope participate:conversation Max number of messages returned is 75.",
+                "operationId": "ConversationMessagesRecentGetHandler",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "A maximum number of conversations to return per call. Valid length range: 1 - 75. Default value is 75."
+                    },
+                    {
+                        "name": "cloudId",
+                        "in": "path",
+                        "description": "The id of the site (cloudId)"
+                    },
+                    {
+                        "name": "conversationId",
+                        "in": "path",
+                        "description": "The conversation id"
+                    }
+                ]
+            }
+        },
+        "\/site\/{cloudId}\/conversation\/{conversationId}\/message\/{messageId}": {
+            "get": {
+                "summary": "Get Message by id",
+                "description": "Authentication required, with scope participate:conversation",
+                "operationId": "ConversationMessageGetHandler",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "messageId",
+                        "in": "path",
+                        "description": "The ID of the message."
+                    },
+                    {
+                        "name": "cloudId",
+                        "in": "path",
+                        "description": "The id of the site (cloudId)"
+                    },
+                    {
+                        "name": "conversationId",
+                        "in": "path",
+                        "description": "The conversation id"
+                    }
+                ]
+            },
+            "put": {
+                "summary": "Edit a message in a conversation",
+                "description": "Authentication required, with scope participate:conversation",
+                "operationId": "ConversationMessagePutHandler",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "cloudId",
+                        "in": "path",
+                        "description": "The id of the site (cloudId)"
+                    },
+                    {
+                        "name": "conversationId",
+                        "in": "path",
+                        "description": "The conversation id"
+                    },
+                    {
+                        "name": "messageId",
+                        "in": "path",
+                        "description": "The ID of the message."
+                    }
+                ]
+            },
+            "delete": {
+                "summary": "Delete a message in a conversation",
+                "description": "Authentication required, with scope participate:conversation",
+                "operationId": "ConversationMessageDeleteHandler",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "cloudId",
+                        "in": "path",
+                        "description": "The id of the site (cloudId)"
+                    },
+                    {
+                        "name": "conversationId",
+                        "in": "path",
+                        "description": "The conversation id"
+                    },
+                    {
+                        "name": "messageId",
+                        "in": "path",
+                        "description": "The ID of the message."
+                    }
+                ]
+            }
+        },
+        "\/site\/{cloudId}\/conversation\/{conversationId}\/message\/{messageId}\/context": {
+            "get": {
+                "summary": "Get conversation history contextually",
+                "description": "Authentication required, with scope participate:conversation This method returns messages after and\/or before a given messageID including the message itself. Default value for 'after' and 'before' query parameters is 0. Max number of messages returned is 75.",
+                "operationId": "ConversationContextMessagesGetHandler",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "messageId",
+                        "in": "path",
+                        "description": "The ID of the message."
+                    },
+                    {
+                        "name": "before",
+                        "in": "query",
+                        "description": "A number of messages to return before the Message."
+                    },
+                    {
+                        "name": "after",
+                        "in": "query",
+                        "description": "A number of messages to return after the Message."
+                    },
+                    {
+                        "name": "cloudId",
+                        "in": "path",
+                        "description": "The id of the site (cloudId)"
+                    },
+                    {
+                        "name": "conversationId",
+                        "in": "path",
+                        "description": "The conversation id"
+                    }
+                ]
+            }
+        },
+        "\/site\/{cloudId}\/conversation\/{conversationId}\/roster": {
+            "get": {
+                "summary": "Get conversation roster",
+                "description": "Authentication required, with scope participate:conversation",
+                "operationId": "ConversationRosterGetHandler",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "cloudId",
+                        "in": "path",
+                        "description": "The id of the site (cloudId)"
+                    },
+                    {
+                        "name": "conversationId",
+                        "in": "path",
+                        "description": "The conversation id"
+                    }
+                ]
+            },
+            "patch": {
+                "summary": "Update a conversation roster",
+                "description": "Authentication required, with scope manage:conversation",
+                "operationId": "PatchRosterHandler",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "cloudId",
+                        "in": "path",
+                        "description": "The id of the site (cloudId)"
+                    },
+                    {
+                        "name": "conversationId",
+                        "in": "path",
+                        "description": "The conversation id"
+                    }
+                ]
+            }
+        },
+        "\/site\/{cloudId}\/conversation\/{conversationId}\/unarchive": {
+            "put": {
+                "summary": "Unarchive conversation",
+                "description": "Authentication required, with scope manage:conversation",
+                "operationId": "ConversationUnarchivePutHandler",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "cloudId",
+                        "in": "path",
+                        "description": "The id of the site (cloudId)"
+                    },
+                    {
+                        "name": "conversationId",
+                        "in": "path",
+                        "description": "The conversation id"
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "schemas": []
+    }
+}

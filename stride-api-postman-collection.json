@@ -1,5 +1,5 @@
 {
-    "id": "da03533d5b9ad81b7258cf5e508cf09e",
+    "id": "ec5b69ed3f977c44b900bb5ddc944ccc",
     "name": "Stride API",
     "description": null,
     "auth": null,
@@ -10,7 +10,7 @@
     "folders": [],
     "requests": [
         {
-            "id": "cfc45ddfdceee5ef650f8f33497597bf",
+            "id": "34fe492501202cf9deccc21303d4f23a",
             "name": "Get list of sites",
             "url": "https\/\/site\/",
             "description": "Authentication required, with scope participate:conversation",
@@ -29,11 +29,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "collectionId": "ec5b69ed3f977c44b900bb5ddc944ccc",
             "rawModeData": ""
         },
         {
-            "id": "f2047e2a47e0b148692e2e0a0b6b56cc",
+            "id": "6f2335e25db66a33466fdba055335711",
             "name": "Get a list of conversations",
             "url": "https\/\/site\/{cloudId}\/conversation",
             "description": "The API returns the list of conversations the app has access to Authentication required, with scope participate:conversation",
@@ -102,11 +102,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "collectionId": "ec5b69ed3f977c44b900bb5ddc944ccc",
             "rawModeData": ""
         },
         {
-            "id": "613ee0b5108edb4e79a2993969a2bb82",
+            "id": "b208a0bea43da5627cd55ac68b76c19b",
             "name": "Create conversation",
             "url": "https\/\/site\/{cloudId}\/conversation",
             "description": "Authentication required, with scope manage:conversation",
@@ -133,11 +133,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "collectionId": "ec5b69ed3f977c44b900bb5ddc944ccc",
             "rawModeData": ""
         },
         {
-            "id": "b6a58942d1dda5e7bef5a6cd6f211cab",
+            "id": "dc0888f9951c35c630bf5f443526bce8",
             "name": "Get a direct conversation of a user",
             "url": "https\/\/site\/{cloudId}\/conversation\/user\/{userId}",
             "description": "Get a direct conversation of a user.",
@@ -171,11 +171,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "collectionId": "ec5b69ed3f977c44b900bb5ddc944ccc",
             "rawModeData": ""
         },
         {
-            "id": "53fa887ec631f3a195ac3d67cddb990c",
+            "id": "40e7a8da0ac2b75979905ae90350e21b",
             "name": "Send message to a user",
             "url": "https\/\/site\/{cloudId}\/conversation\/user\/{userId}\/message",
             "description": "Send message to a user.",
@@ -209,11 +209,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "collectionId": "ec5b69ed3f977c44b900bb5ddc944ccc",
             "rawModeData": ""
         },
         {
-            "id": "5dc1bb30a435c90e3e568c88032ff60d",
+            "id": "ce297ef784344d00704fb407f9f53d7d",
             "name": "Edit a message in a direct conversation",
             "url": "https\/\/site\/{cloudId}\/conversation\/user\/{userId}\/message\/{messageId}",
             "description": "Authentication required, with scope participate:conversation",
@@ -254,11 +254,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "collectionId": "ec5b69ed3f977c44b900bb5ddc944ccc",
             "rawModeData": ""
         },
         {
-            "id": "e350ae1e28c3fa6f9e98f8d87511c762",
+            "id": "ec375c1e7e3900ab0cdc53653f6db6ac",
             "name": "Delete a message in a direct conversation",
             "url": "https\/\/site\/{cloudId}\/conversation\/user\/{userId}\/message\/{messageId}",
             "description": "Authentication required, with scope participate:conversation",
@@ -299,11 +299,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "collectionId": "ec5b69ed3f977c44b900bb5ddc944ccc",
             "rawModeData": ""
         },
         {
-            "id": "2d3dfab95c0f8ef36d8ffd53a46df775",
+            "id": "5991df325f29a8c4bb6f3204aaed197a",
             "name": "Get conversation details",
             "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}",
             "description": "Authentication required, with scope participate:conversation",
@@ -337,11 +337,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "collectionId": "ec5b69ed3f977c44b900bb5ddc944ccc",
             "rawModeData": ""
         },
         {
-            "id": "ab57aebac62008bd182ec1c21c92d1a0",
+            "id": "712f63f6eed900f908685c37907537ed",
             "name": "Update conversation",
             "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}",
             "description": "Authentication required, with scope manage:conversation",
@@ -375,11 +375,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "collectionId": "ec5b69ed3f977c44b900bb5ddc944ccc",
             "rawModeData": ""
         },
         {
-            "id": "fe2564d0ac76b46cec75c27beda514fa",
+            "id": "3b01c20284b5b2b17e41028889a99600",
             "name": "Get a list of chat:actionTarget modules",
             "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:actionTarget",
             "description": "Authentication required, with scope participate:conversation",
@@ -427,11 +427,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "collectionId": "ec5b69ed3f977c44b900bb5ddc944ccc",
             "rawModeData": ""
         },
         {
-            "id": "f9052d4d34dce785258ddc40a02ebc7a",
+            "id": "faeba526a0bca206d4ada3b5413e7d94",
             "name": "Create or update a chat:actionTarget module",
             "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:actionTarget\/{key}",
             "description": "Authentication required, with scope participate:conversation",
@@ -472,11 +472,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "collectionId": "ec5b69ed3f977c44b900bb5ddc944ccc",
             "rawModeData": ""
         },
         {
-            "id": "7b61d2d7ca20d4b262db2c3f6f23261d",
+            "id": "adce8f908a14c91fa4bda82044ec0479",
             "name": "Delete a chat:actionTarget module",
             "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:actionTarget\/{key}",
             "description": "Authentication required, with scope participate:conversation",
@@ -517,11 +517,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "collectionId": "ec5b69ed3f977c44b900bb5ddc944ccc",
             "rawModeData": ""
         },
         {
-            "id": "7447d8f4091e1c9ae31e0664deb71575",
+            "id": "8d6309a7227f989243cb5d0b7f298f8f",
             "name": "Get a list of chat:bot modules",
             "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:bot",
             "description": "Authentication required, with scope participate:conversation",
@@ -569,11 +569,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "collectionId": "ec5b69ed3f977c44b900bb5ddc944ccc",
             "rawModeData": ""
         },
         {
-            "id": "ebf6ed0e98fe6aa2f0cd87bb712e48fa",
+            "id": "8a80dd6a3d4b475935efae8f08da91b4",
             "name": "Create or update a chat:bot module",
             "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:bot\/{key}",
             "description": "Authentication required, with scope participate:conversation",
@@ -614,11 +614,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "collectionId": "ec5b69ed3f977c44b900bb5ddc944ccc",
             "rawModeData": ""
         },
         {
-            "id": "c1d531e2d9beba441d7eeaf1272c0291",
+            "id": "c65c011cac798275413346b4eeee333f",
             "name": "Delete a chat:bot module",
             "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:bot\/{key}",
             "description": "Authentication required, with scope participate:conversation",
@@ -659,11 +659,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "collectionId": "ec5b69ed3f977c44b900bb5ddc944ccc",
             "rawModeData": ""
         },
         {
-            "id": "0dc1210b79f8b4154a5cee96f1eb0741",
+            "id": "2b48e88093cf8fce8f6b54a5fd6c27a9",
             "name": "Get a list of chat:bot:messages modules",
             "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:bot:messages",
             "description": "Authentication required, with scope participate:conversation",
@@ -711,11 +711,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "collectionId": "ec5b69ed3f977c44b900bb5ddc944ccc",
             "rawModeData": ""
         },
         {
-            "id": "40e4db51d834ef7435c725fcbbcf6733",
+            "id": "f7e3fe0d31b6077e8bf75b54e3d84c1d",
             "name": "Create or update a chat:bot:messages module",
             "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:bot:messages\/{key}",
             "description": "Authentication required, with scope participate:conversation",
@@ -756,11 +756,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "collectionId": "ec5b69ed3f977c44b900bb5ddc944ccc",
             "rawModeData": ""
         },
         {
-            "id": "655b8f68fb04d170ded2a7fe4fc2573d",
+            "id": "d2e9e5467d187c00b57335171af2a401",
             "name": "Delete a chat:bot:messages module",
             "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:bot:messages\/{key}",
             "description": "Authentication required, with scope participate:conversation",
@@ -801,11 +801,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "collectionId": "ec5b69ed3f977c44b900bb5ddc944ccc",
             "rawModeData": ""
         },
         {
-            "id": "f9dc870c0227091c338193ad83187748",
+            "id": "3ff03a0201e22d0a60f66f6521ea3a7a",
             "name": "Update the chat:configuration state",
             "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:configuration\/{key}\/state",
             "description": "Authentication required, with scope participate:conversation",
@@ -846,11 +846,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "collectionId": "ec5b69ed3f977c44b900bb5ddc944ccc",
             "rawModeData": ""
         },
         {
-            "id": "dc02575610ba2247e525c6a8f870d3f4",
+            "id": "9e74bf1ed45073bfc5f4aee27f8e7534",
             "name": "Get a list of chat:dialog modules",
             "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:dialog",
             "description": "Authentication required, with scope participate:conversation",
@@ -898,11 +898,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "collectionId": "ec5b69ed3f977c44b900bb5ddc944ccc",
             "rawModeData": ""
         },
         {
-            "id": "29c22f8d62e8a4d9480f4cc8638929bd",
+            "id": "109c6ba65862a8a4879be952fec8b2bb",
             "name": "Create or update a chat:dialog module",
             "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:dialog\/{key}",
             "description": "Authentication required, with scope participate:conversation",
@@ -943,11 +943,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "collectionId": "ec5b69ed3f977c44b900bb5ddc944ccc",
             "rawModeData": ""
         },
         {
-            "id": "07a3c0c0492f429795b37739e3461ce0",
+            "id": "477638602ffed67f23f46247a51e1c05",
             "name": "Delete a chat:dialog module",
             "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:dialog\/{key}",
             "description": "Authentication required, with scope participate:conversation",
@@ -988,11 +988,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "collectionId": "ec5b69ed3f977c44b900bb5ddc944ccc",
             "rawModeData": ""
         },
         {
-            "id": "c0f6ee54dfd1d85dafa5165e521c4767",
+            "id": "11062ab33c89beb99e90a413a513ae6c",
             "name": "Get a list of chat:externalPage modules",
             "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:externalPage",
             "description": "Authentication required, with scope participate:conversation",
@@ -1040,11 +1040,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "collectionId": "ec5b69ed3f977c44b900bb5ddc944ccc",
             "rawModeData": ""
         },
         {
-            "id": "d5ed4ad48bf99873307ddc2df7d185a2",
+            "id": "e0ed35a622a5babb90c5f5937b4529cc",
             "name": "Create or update a chat:externalPage module",
             "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:externalPage\/{key}",
             "description": "Authentication required, with scope participate:conversation",
@@ -1085,11 +1085,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "collectionId": "ec5b69ed3f977c44b900bb5ddc944ccc",
             "rawModeData": ""
         },
         {
-            "id": "1353bcb96838c1b51618416af3ec8099",
+            "id": "9140bc9a922fcadbbd1243b65de12ea8",
             "name": "Delete a chat:externalPage module",
             "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:externalPage\/{key}",
             "description": "Authentication required, with scope participate:conversation",
@@ -1130,11 +1130,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "collectionId": "ec5b69ed3f977c44b900bb5ddc944ccc",
             "rawModeData": ""
         },
         {
-            "id": "2937ccf8ede30f529eea2e31cbd9184c",
+            "id": "bc81fc8491454996bc119ec9ba96add1",
             "name": "Get a list of chat:glance modules",
             "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:glance",
             "description": "Authentication required, with scope participate:conversation",
@@ -1182,11 +1182,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "collectionId": "ec5b69ed3f977c44b900bb5ddc944ccc",
             "rawModeData": ""
         },
         {
-            "id": "9ff2233ed006c01ecca6fafe89f721f7",
+            "id": "45eca091d5b132db6588d8b2daeb487b",
             "name": "Create or update a chat:glance module",
             "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:glance\/{key}",
             "description": "Authentication required, with scope participate:conversation",
@@ -1227,11 +1227,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "collectionId": "ec5b69ed3f977c44b900bb5ddc944ccc",
             "rawModeData": ""
         },
         {
-            "id": "fabdfb4fc7fbc7e4d537d5df68e7518c",
+            "id": "fe8e6ea38ca72802b5c763f8a9db5263",
             "name": "Delete a chat:glance module",
             "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:glance\/{key}",
             "description": "Authentication required, with scope participate:conversation",
@@ -1272,11 +1272,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "collectionId": "ec5b69ed3f977c44b900bb5ddc944ccc",
             "rawModeData": ""
         },
         {
-            "id": "d0be280252d0bb5109a76f27aed67357",
+            "id": "72e0e37d63823651032fd87dce377fd6",
             "name": "Update the chat:glance state",
             "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:glance\/{key}\/state",
             "description": "Authentication required, with scope participate:conversation",
@@ -1317,11 +1317,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "collectionId": "ec5b69ed3f977c44b900bb5ddc944ccc",
             "rawModeData": ""
         },
         {
-            "id": "2afa56e9616c59b844a4941f61c82781",
+            "id": "637d8555839237e8166f9e9a8cb67458",
             "name": "Get a list of chat:sidebar modules",
             "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:sidebar",
             "description": "Authentication required, with scope participate:conversation",
@@ -1369,11 +1369,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "collectionId": "ec5b69ed3f977c44b900bb5ddc944ccc",
             "rawModeData": ""
         },
         {
-            "id": "8f6aad6c6ab6e99755eccebf7d0bf2a2",
+            "id": "950ec931abb0b4daae21509905f2452b",
             "name": "Create or update a chat:sidebar module",
             "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:sidebar\/{key}",
             "description": "Authentication required, with scope participate:conversation",
@@ -1414,11 +1414,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "collectionId": "ec5b69ed3f977c44b900bb5ddc944ccc",
             "rawModeData": ""
         },
         {
-            "id": "0979f4ab07d9313ec76dc1a46f3b5b88",
+            "id": "d03a21ac9f598c9e6ed4adecfbe64372",
             "name": "Delete a chat:sidebar module",
             "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:sidebar\/{key}",
             "description": "Authentication required, with scope participate:conversation",
@@ -1459,11 +1459,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "collectionId": "ec5b69ed3f977c44b900bb5ddc944ccc",
             "rawModeData": ""
         },
         {
-            "id": "56380fe8f9f5abb620ac9fa550b433aa",
+            "id": "657f85565b6bd1da650788e47090fa2f",
             "name": "Get a list of chat:webhook modules",
             "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:webhook",
             "description": "Authentication required, with scope participate:conversation",
@@ -1511,11 +1511,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "collectionId": "ec5b69ed3f977c44b900bb5ddc944ccc",
             "rawModeData": ""
         },
         {
-            "id": "a7edc589c5f4c29efbe1a328e9e2419b",
+            "id": "25c5d77e3d058a5b60bb8cfe97314b3f",
             "name": "Create or update a chat:webhook module",
             "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:webhook\/{key}",
             "description": "Authentication required, with scope participate:conversation",
@@ -1556,11 +1556,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "collectionId": "ec5b69ed3f977c44b900bb5ddc944ccc",
             "rawModeData": ""
         },
         {
-            "id": "06704ee03e4f3baf30b17406aff73a2b",
+            "id": "c20fa095e338afe6332b613461349192",
             "name": "Delete a chat:webhook module",
             "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/app\/module\/chat:webhook\/{key}",
             "description": "Authentication required, with scope participate:conversation",
@@ -1601,11 +1601,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "collectionId": "ec5b69ed3f977c44b900bb5ddc944ccc",
             "rawModeData": ""
         },
         {
-            "id": "96e2cf5d4fc5a3be25ff515d39b70c21",
+            "id": "2d382ae4197b1eeb5a83d9990020643a",
             "name": "Archive conversation",
             "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/archive",
             "description": "Authentication required, with scope manage:conversation",
@@ -1639,11 +1639,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "collectionId": "ec5b69ed3f977c44b900bb5ddc944ccc",
             "rawModeData": ""
         },
         {
-            "id": "4a99c90995d68c50ed21768a3c5b9bad",
+            "id": "b5aa298748f2ef9e929eaf14a0ce58cd",
             "name": "Upload a file",
             "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/media",
             "description": "Authentication required, with scope participate:conversation",
@@ -1684,11 +1684,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "collectionId": "ec5b69ed3f977c44b900bb5ddc944ccc",
             "rawModeData": ""
         },
         {
-            "id": "6796d86fe51575300f6e2c9c23cbeff9",
+            "id": "1644c038c841812d42c8f6af03cea82e",
             "name": "Get a file",
             "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/media\/{mediaId}",
             "description": "Authentication required, with scope participate:conversation",
@@ -1729,11 +1729,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "collectionId": "ec5b69ed3f977c44b900bb5ddc944ccc",
             "rawModeData": ""
         },
         {
-            "id": "918a86ada947b58b1ea577424c753262",
+            "id": "7b6dc2a76323487e1b8c7d41bfc467b8",
             "name": "Delete a file",
             "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/media\/{mediaId}",
             "description": "Authentication required, with scope participate:conversation",
@@ -1774,11 +1774,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "collectionId": "ec5b69ed3f977c44b900bb5ddc944ccc",
             "rawModeData": ""
         },
         {
-            "id": "8977e4f3498051a8d305c9f0d1d2f4b6",
+            "id": "5d4b638add0c9770f040ac28bdfa435f",
             "name": "Get conversation history",
             "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/message",
             "description": "Authentication required, with scope participate:conversation This method returns messages after\/before a given messageIDs or\/and timestamps. If these parameters are omitted the method returns conversation\u2019s latest messages. Max number of messages returned is 75.",
@@ -1847,11 +1847,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "collectionId": "ec5b69ed3f977c44b900bb5ddc944ccc",
             "rawModeData": ""
         },
         {
-            "id": "7090c6bbc18893e83a516621a4035f9d",
+            "id": "5263f4f6857bff757923a01809d30911",
             "name": "Send a message to a conversation",
             "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/message",
             "description": "Send a message to a conversation.",
@@ -1885,11 +1885,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "collectionId": "ec5b69ed3f977c44b900bb5ddc944ccc",
             "rawModeData": ""
         },
         {
-            "id": "16f154d8ad0b17d271b55f4dcdf31b0c",
+            "id": "5363c32603fec3a771e701b642930f6a",
             "name": "Get latest messages for conversation",
             "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/message\/recent",
             "description": "Authentication required, with scope participate:conversation Max number of messages returned is 75.",
@@ -1930,11 +1930,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "collectionId": "ec5b69ed3f977c44b900bb5ddc944ccc",
             "rawModeData": ""
         },
         {
-            "id": "75c0f5e6f26b8f97d1e55943ff68b842",
+            "id": "7de39fa0a45576531fc69c4376ab0cd6",
             "name": "Get Message by id",
             "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/message\/{messageId}",
             "description": "Authentication required, with scope participate:conversation",
@@ -1975,11 +1975,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "collectionId": "ec5b69ed3f977c44b900bb5ddc944ccc",
             "rawModeData": ""
         },
         {
-            "id": "12439f86030d289e2741264dfe5049d6",
+            "id": "ab11a6ef6472e13acc2d833c8c481258",
             "name": "Edit a message in a conversation",
             "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/message\/{messageId}",
             "description": "Authentication required, with scope participate:conversation",
@@ -2020,11 +2020,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "collectionId": "ec5b69ed3f977c44b900bb5ddc944ccc",
             "rawModeData": ""
         },
         {
-            "id": "6e4882094eac51ff07e20f30899b1e70",
+            "id": "5133bc60e3890db6645fa33c60568984",
             "name": "Delete a message in a conversation",
             "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/message\/{messageId}",
             "description": "Authentication required, with scope participate:conversation",
@@ -2065,11 +2065,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "collectionId": "ec5b69ed3f977c44b900bb5ddc944ccc",
             "rawModeData": ""
         },
         {
-            "id": "609ab6a944059393fa627ef27165f9ce",
+            "id": "9f2dbe6fbc3fc9aed77fcb8982260fcd",
             "name": "Get conversation history contextually",
             "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/message\/{messageId}\/context",
             "description": "Authentication required, with scope participate:conversation This method returns messages after and\/or before a given messageID including the message itself. Default value for 'after' and 'before' query parameters is 0. Max number of messages returned is 75.",
@@ -2124,11 +2124,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "collectionId": "ec5b69ed3f977c44b900bb5ddc944ccc",
             "rawModeData": ""
         },
         {
-            "id": "515650bf8bc8f58948e54dc56390ffac",
+            "id": "010c62c845685b47829283c064b7ca98",
             "name": "Get conversation roster",
             "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/roster",
             "description": "Authentication required, with scope participate:conversation",
@@ -2162,11 +2162,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "collectionId": "ec5b69ed3f977c44b900bb5ddc944ccc",
             "rawModeData": ""
         },
         {
-            "id": "1dbe8c74de2b8d5f150ab345f35fcfd2",
+            "id": "cb8a618124b16749bbac19d7bf04cf0d",
             "name": "Update a conversation roster",
             "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/roster",
             "description": "Authentication required, with scope manage:conversation",
@@ -2200,11 +2200,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "collectionId": "ec5b69ed3f977c44b900bb5ddc944ccc",
             "rawModeData": ""
         },
         {
-            "id": "1d1b659b0b8c39aa80448ac2b99012e2",
+            "id": "82d15ba8880aaa5a8cc4aa8e919d5663",
             "name": "Unarchive conversation",
             "url": "https\/\/site\/{cloudId}\/conversation\/{conversationId}\/unarchive",
             "description": "Authentication required, with scope manage:conversation",
@@ -2238,7 +2238,7 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "da03533d5b9ad81b7258cf5e508cf09e",
+            "collectionId": "ec5b69ed3f977c44b900bb5ddc944ccc",
             "rawModeData": ""
         }
     ]
